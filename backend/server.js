@@ -4,12 +4,14 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import note from './models/note.js';
+import {router} from './routes.js'
+
 //import note from './models/note';
 import { ElementSchemaRegistry } from '@angular/compiler';
 
 const app = express();
 const port = 4000;
-const router = express.Router();
+const myRouter = router;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,13 +23,12 @@ connection.once('open',()=>{
     console.log('Database connection established');
 });
 
-
 app.listen(port,()=>{
     console.log("Succes");
 })
 
 // Get every notes
-router.route('/notes').get(async (req,res) =>{
+/*router.route('/notes').get(async (req,res) =>{
     
     try{
         const notes = await note.find();
@@ -36,9 +37,9 @@ router.route('/notes').get(async (req,res) =>{
     {
         console.log(err);
     }
-});
+}); */
 
-app.use('/',router);
+app.use('/',myRouter);
 
 
 
