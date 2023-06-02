@@ -13,7 +13,12 @@ const app = express();
 const port = 4000;
 const myRouter = router;
 
-app.use(cors());
+app.use(cors(
+    {
+        origin : "http://localhost:4200"
+    }
+));
+
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://127.0.0.1:27017/ArchiWeb');
@@ -27,17 +32,6 @@ app.listen(port,()=>{
     console.log("Succes");
 })
 
-// Get every notes
-/*router.route('/notes').get(async (req,res) =>{
-    
-    try{
-        const notes = await note.find();
-        res.json(notes);
-    }catch(err)
-    {
-        console.log(err);
-    }
-}); */
 
 app.use('/',myRouter);
 

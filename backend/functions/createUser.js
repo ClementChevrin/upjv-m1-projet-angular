@@ -18,7 +18,7 @@ export function createUser(userDetails){
             resolve(true);
             user.save();
         }catch(err){
-            reject(false)
+            reject(false);
             console.log(err);
         }
     });
@@ -31,10 +31,10 @@ export var createUserFct = async(req,res) =>
         var status = await createUser(req.body);
 
         if(status){
-            res.send({ "status": true, "message": "Student created successfully" });
+            res.send({ "status": true, "message": "L'Etudiant  a été crée" });
         }else{
-            res.send({ "status":false, "message": "Error creating user" });
-        }
+            res.send({ "status":false, "message": "Erreur lors de la création de l'étudiant"});
+        } 
         
     }catch(err){
         console.log(err);
