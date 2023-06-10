@@ -1,6 +1,5 @@
 import Competence from '../models/competence.js'
  
-
 export var getAllCpt = async (req,res) => {
 
     try{

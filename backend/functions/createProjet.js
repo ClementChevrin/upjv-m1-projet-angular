@@ -12,8 +12,9 @@ export function createProjet(projetDetails) {
             var new_projet = new Projet();
 
             new_projet.nom = projetDetails.nom;
-            new_projet.description = projetDetails.description
-            new_projet.codeP = projetDetails.codeP
+            new_projet.description = projetDetails.description;
+            new_projet.codeP = projetDetails.codeP;
+            new_projet.enseigant = projetDetails.enseigant
 
             projetDetails.codeCR.forEach(code => {
                 new_projet.codeCR.push(code);
@@ -32,9 +33,11 @@ export function createProjet(projetDetails) {
             if(ok){
             new_projet.save();
             resolve({status: true, message : "Projet créé"});
+            }else{
+            resolve({status: false, message : "Le projet existe deja"});
             }
         } catch (err) {
-            reject({status : false, message : "Le projet existe deja"});
+            reject({status : false, message : "Error"});
             console.log(err);
         }
     });

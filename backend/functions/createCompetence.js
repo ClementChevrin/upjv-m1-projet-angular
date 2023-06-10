@@ -12,18 +12,20 @@ export function createCompetence(competenceDetails) {
             new_competence.nom = competenceDetails.nom;
             new_competence.description = competenceDetails.description;
             new_competence.codeC = competenceDetails.codeC
-        }else{
+        } else {
             ok = false;
             console.log("La compétence existe déjà");
         }
 
         try {
-            if(ok){
-            new_competence.save();
-            resolve({status: true, message : "Competence créé"});
+            if (ok) {
+                new_competence.save();
+                resolve({ status: true, message: "Competence créé" });
+            } else {
+                resolve({ status: false, message: "La competence existe deja" });
             }
         } catch (err) {
-            reject({status : false, message : "La competence existe deja"});
+            reject({ status: false, message: "Error" });
             console.log(err);
         }
     });

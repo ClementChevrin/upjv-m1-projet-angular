@@ -6,19 +6,32 @@ const key = '987654321NBVCXWMLKJH'
 const myEncryptor = encryptor(key);
 
 export function createUser(userDetails){
-     return new Promise(function myFn(resolve, reject) {
+     return new Promise(async function myFn(resolve, reject) {
+
         var user = new User();
+        var ok = true;
+        var userTest = await User.findOne({ email: userDetails.email });
+
+        if(userTest == null || userTest == undefined){ //l'email est unique par user
         user.prenom = userDetails.prenom;
         user.nom = userDetails.nom;
         user.email = userDetails.email;
         user.mdp = myEncryptor.encrypt(userDetails.mdp);
         user.role = userDetails.role;
+        }else{
+            ok=false;
+            console.log("L'utilisateur existe déjà");
+        }
 
         try{
-            resolve(true);
-            user.save();
+            if(ok){
+                resolve({status: true, message : "User créé"});
+                user.save();
+            }else{
+                resolve({status: false, message : "User existant"});
+            }
         }catch(err){
-            reject(false);
+            reject({status: false, message : "Error"});
             console.log(err);
         }
     });
@@ -28,12 +41,12 @@ export var createUserFct = async(req,res) =>
 {
     try{
         console.log(req.body);
-        var status = await createUser(req.body);
+        var statut = await createUser(req.body);
 
-        if(status){
-            res.send({ "status": true, "message": "L'Etudiant  a été crée" });
+        if(statut.status){
+            res.send({ "status": statut.status, "message": statut.message });
         }else{
-            res.send({ "status":false, "message": "Erreur lors de la création de l'étudiant"});
+            res.send({ "status":statut.status, "message": statut.message});
         } 
         
     }catch(err){

@@ -10,9 +10,11 @@ let Competence = new Schema({
         type : String
     },
     codeC:{
-        type : String
+        type : String // Identifiant de la compétence
     }
 });
 
 export default mongoose.model('Competence',Competence);
+
+
 

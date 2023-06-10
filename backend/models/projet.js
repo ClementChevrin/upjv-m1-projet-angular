@@ -17,6 +17,9 @@ let Projet = new Schema({
     },
     codeP :{
         type : String // Identifiant du projet
+    },
+    enseigant :{
+        type : String
     }
 });
 
