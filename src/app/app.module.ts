@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { CompetenceComponent } from './competence/competence.component';
-import { ProjetComponent } from './projet/projet.component'
+import { ProjetComponent } from './projet/projet.component';
+import { UserComponent } from './user/user.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProjetComponent } from './projet/projet.component'
     RegisterComponent,
     HomeComponent,
     CompetenceComponent,
-    ProjetComponent
+    ProjetComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
