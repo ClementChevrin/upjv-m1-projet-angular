@@ -1,40 +1,69 @@
 <div class="container mt-4">
+  <form>
+    <h1>Création d'utilisateur</h1>
+    <h3>Créé les comptes de vos utilisateurs ici !</h3>
+    <div class="form-group">
+      <label>Prenom</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          person
+        </span>
+        <input type="text" [(ngModel)]="prenom" [ngModelOptions]="{standalone: true}" class="form-control" id="prenom"
+          placeholder="Prenom" required>
+      </div>
+    </div>
 
-<div class="card">
-    <h1>Student Registation</h1>
+    <div class="form-group">
+      <label>Nom</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          person
+        </span>
+        <input type="text" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" class="form-control" id="nom"
+          placeholder="Nom" required>
+      </div>
+    </div>
 
-<form>
-<div class="form-group">
-  <label>Prenom</label>
-  <input type="text" [(ngModel)]="prenom" [ngModelOptions]="{standalone: true}" class="form-control" id="prenom" placeholder="Prenom">
-</div>
+    <div class="form-group">
 
-<div class="form-group">
-    <label>Nom</label>
-    <input type="text" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" class="form-control" id="nom" placeholder="Nom">
-  </div>
+      <label>Email</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          mail
+        </span>
+        <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"
+          placeholder="Email" required>
+      </div>
+    </div>
 
-<div class="form-group">
-  <label>email</label>
-  <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" placeholder="xxx@xxx.xx">
-</div>
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          lock
+        </span>
+        <input type="password" [(ngModel)]="mdp" [ngModelOptions]="{standalone: true}" class="form-control" id="mdp"
+          placeholder="Mot de passe" required>
+      </div>
+    </div>
 
-<div class="form-group">
-    <label>Mot de passe</label>
-    <input type="password" [(ngModel)]="mdp" [ngModelOptions]="{standalone: true}" class="form-control" id="mdp" placeholder="Mot de passe">
-  </div>
+    <div class="form-group">
+      <label>Role</label>
 
-  <div class="form-group">
-    <label>Role</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          emoji_people
+        </span>
+        <select name="pets" [(ngModel)]="role" [ngModelOptions]="{standalone: true}" id="role" class="form-control"
+          required>
+          <option value="Etudiant" selected>Etudiant</option>
+          <option value="Enseignant">Enseignant</option>
+        </select>
+      </div>
 
-    <select name="pets" [(ngModel)]="role" [ngModelOptions]="{standalone: true}" id="role" class="form-control">
-        <option value="Etudiant">Etudiant</option>
-        <option value="Enseignant">Enseignant</option>
-    </select>
-    
-  </div>
+    </div>
 
-<button type="submit" class="btn btn-primary mt-4" (click)="createUser()" >Save</button>
+    <button type="submit" class="btn btn-valid mt-4" (click)="createUser()">Créer</button>
 
-</form>
+  </form>
 </div>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <title>Projet</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+      <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      <style>
+            body {
+                  margin: 0;
+            }
+
+            nav {
+                  background-color: rgb(44, 44, 44);
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  font-family: 'Poppins', sans-serif;
+                  -webkit-box-shadow: 0px 0px 42px -16px rgba(0, 0, 0, 0.73);
+                  box-shadow: 0px 0px 42px -16px rgba(0, 0, 0, 0.73);
+            }
+
+            nav .titre {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  margin: 10px 0 10px 20px;
+            }
+
+            nav .titre img {
+                  width: 40px;
+                  height: 40px;
+            }
+
+            nav .titre label {
+                  color: white;
+                  margin-left: 10px;
+                  font-size: 2em;
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+            }
+
+            nav .titre label span {
+                  font-size: 10px;
+                  margin-left: 15px;
+                  display: flex;
+                  flex-direction: column;
+            }
+
+            nav .titre label span p {
+                  margin: 0;
+            }
+
+            nav ul {
+                  list-style-type: none;
+                  display: flex;
+                  flex-direction: row;
+                  height: fit-content;
+                  margin: 0;
+                  margin-right: 20px;
+            }
+
+            nav ul li {
+                  color: white;
+                  transition: all 0.5s ease;
+                  height: 68px;
+                  padding: 0 20px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+
+            }
+
+            nav ul li:hover {
+                  color: rgb(44, 44, 44);
+                  background-color: white;
+                  transition: all 0.5s ease;
+            }
+
+            .page {
+                  height: calc(100vh - 68px);
+                  overflow-y: scroll;
+                  padding: 0 200px;
+            }
+
+
+            .page::-webkit-scrollbar {
+                  background-color: transparent;
+                  width: 3px;
+                  margin: 0 5px;
+            }
+
+            .page::-webkit-scrollbar-track {
+                  background-color: transparent;
+                  padding: 2px;
+            }
+
+            .page::-webkit-scrollbar-thumb {
+                  background-color: var(--clickable);
+                  border-radius: 16px;
+            }
+
+            .page::-webkit-scrollbar-button {
+                  display: none;
+                  position: absolute;
+            }
+
+
+            header {
+                  font-family: 'Poppins', sans-serif;
+            }
+
+            header.projet-list {
+                  margin-bottom: 10px;
+            }
+
+            header.projet-list label {
+                  display: flex;
+                  flex-direction: row;
+                  width: 100%;
+                  font-size: 30px;
+                  margin-top: 50px;
+                  margin-bottom: 20px;
+            }
+
+            header.projet-list .action {
+                  display: flex;
+                  flex-direction: row;
+                  width: 100%;
+            }
+
+            header.projet-list .action button {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  font-family: 'Poppins', sans-serif;
+                  color: white;
+                  background-color: rgb(44, 44, 44);
+                  border-radius: 4px;
+                  border: none;
+                  padding: 5px 14px 5px 10px;
+                  transition: all 0.5s ease;
+            }
+
+            header.projet-list .action button:hover {
+                  background-color: rgb(65, 65, 65);
+                  transition: all 0.5s ease;
+            }
+
+            header.projet-list .action button span {}
+
+            header.projet-list .action .search-bloc {
+                  border: solid 1px black;
+                  border-radius: 4px;
+                  margin-right: 10px;
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  padding-left: 10px;
+                  width: 100%;
+            }
+
+            header.projet-list .action .search-bloc span {
+                  padding-right: 10px;
+            }
+
+            header.projet-list .action .search-bloc input:hover,
+            header.projet-list .action .search-bloc input:focus-visible,
+            header.projet-list .action .search-bloc input {
+                  width: 100%;
+                  border: none;
+                  outline: none;
+                  font-size: 15px;
+                  font-weight: 600;
+            }
+
+
+            .card-projet {
+                  margin: auto;
+                  width: 100%;
+            }
+
+            .card-projet input {
+                  display: none;
+            }
+
+            .card-projet .box {
+                  position: relative;
+                  background: white;
+                  height: 64px;
+                  transition: all .15s ease-in-out;
+            }
+
+            .card-projet .box::before {
+                  content: '';
+                  position: absolute;
+                  display: block;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  pointer-events: none;
+                  box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+            }
+
+            .card-projet .box-content {
+                  width: calc(100% - 40px);
+                  padding: 30px 20px;
+                  font-size: 11pt;
+                  color: rgba(0, 0, 0, .54);
+                  display: none;
+            }
+
+            .card-projet .box-close {
+                  position: absolute;
+                  height: 64px;
+                  width: 100%;
+                  top: 0;
+                  left: 0;
+                  cursor: pointer;
+                  display: none;
+            }
+
+            .card-projet input:checked+.box {
+                  height: auto;
+                  margin: 16px 0;
+                  box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+            }
+
+            .card-projet input:checked+.box .box-title {
+                  border-bottom: 1px solid rgba(0, 0, 0, .18);
+            }
+
+            .card-projet input:checked+.box .box-content,
+            .card-projet input:checked+.box .box-close {
+                  display: inline-block;
+            }
+
+            .card-projet section .box-title {
+                  padding-left: 44px;
+                  width: calc(100% - 64px);
+            }
+
+            .card-projet section .box-title:before {
+                  position: absolute;
+                  display: block;
+                  content: '\203a';
+                  font-size: 18pt;
+                  left: 20px;
+                  top: -2px;
+                  transition: transform .15s ease-in-out;
+                  color: rgba(0, 0, 0, .54);
+            }
+
+            .card-projet input:checked+section.box .box-title:before {
+                  transform: rotate(90deg);
+            }
+      </style>
+</head>
+
+<body>
+      <nav>
+            <div class="titre"><img src="https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png">
+                  <label>Projet <span>
+                              <p>Ngaemoubeke Ryan</p>
+                              <p>Chevrin Clément</p>
+                        </span></label>
+            </div>
+            <ul>
+                  <li></li>
+                  <li>Inscription</li>
+                  <li>Connexion</li>
+            </ul>
+      </nav>
+      <div class="page">
+            <header class="projet-list">
+                  <label for="acc-close" class="box-title">Liste des projets</label>
+                  <div class="action">
+                        <div class="search-bloc">
+                              <span class="material-symbols-rounded">
+                                    search
+                              </span>
+                              <input type="text" name="search" id="search" placeholder="Recherche">
+                        </div>
+                        <button>
+                              <span class="material-symbols-rounded">
+                                    add
+                              </span>Ajouter un projet
+                        </button>
+                  </div>
+            </header>
+            <div class="card-projet">
+                  <input type="radio" name="accordion" id="cb1" />
+                  <section class="box">
+                        <label class="box-title" for="cb1">ProjetAngular</label>
+                        <label class="box-close" for="acc-close"></label>
+                        <div class="box-content">L’objectif est de développer un site Web permettant aux étudiants de
+                              s'auto-évaluer par compétence sur des projets.</div>
+                  </section>
+            </div>
+            <div class="card-projet">
+                  <input type="radio" name="accordion" id="cb2" />
+                  <section class="box">
+                        <label class="box-title" for="cb2">ProjetAngular</label>
+                        <label class="box-close" for="acc-close"></label>
+                        <div class="box-content">L’objectif est de développer un site Web permettant aux étudiants de
+                              s'auto-évaluer par compétence sur des projets.</div>
+                  </section>
+            </div>
+      </div>
+</body>
+
+</html>

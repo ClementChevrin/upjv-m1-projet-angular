@@ -15,28 +15,34 @@ export class ProjetComponent {
   codeCO?: Array<string>;
   codePR?: string;
   enseigant?: string;
-  competences!: Array<string>;
-  itemCompetence! : string;
-
+  competences: any[] = [];
 
   // Appel au route
-  constructor(private http: HttpClient) { }
-  ngOnInit() 
-  { this.getCompetences() 
+  constructor(private http: HttpClient) { this.getAllCpt() }
+  ngOnInit() {
   }
 
-  getCompetences() {
+  /*getCompetences() {
 
     this.http.get("http://localhost:4000/competences").subscribe((result: any) => {
-    this.competences = [];
-    result.forEach((comp: { codeC: any; }) => {
-        console.log(comp.codeC);
-        this.itemCompetence = comp.codeC;
+      this.competences = [];
+      console.log("", result, "");
+
+      result.forEach((comp: { nom: any, codeC: any, }) => {
+        console.log(comp.nom, comp.codeC);
+        this.itemCompetence = comp.nom;
         this.competences.push(this.itemCompetence);
         console.log(this.itemCompetence);
       });
-      
+
     });
+  }*/
+
+  getAllCpt() {
+
+    this.http.get("http://localhost:4000/competences").subscribe((result: any) => {
+      this.competences = result;
+    })
   }
 
   createProjet() {
