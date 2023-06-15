@@ -33,8 +33,11 @@ createUser(){
 
   this.http.post("http://localhost:4000/user/create",data).subscribe((result : any) =>
   {
-   // console.log(result);
+    if(result.status)
     alert("Utilisateur enregistré")
+    else{
+      alert(result.message);
+    }
   });
 
 }

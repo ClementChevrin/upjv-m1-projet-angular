@@ -9,18 +9,53 @@
                 <th scope="col">Role</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             <tr *ngFor="let user of listUsers">
                 <td>{{user.prenom }}</td>
                 <td>{{user.nom }}</td>
                 <td>{{user.email }}</td>
                 <td>{{user.role}}</td>
                 <td>
-                    <button type="button" class="btn btn-success">Update</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-success" id={{user.email}} class="updateBtn" (click)="updateUser1($event)">Update</button>
+                    <button type="submit" id={{user.email}} class="btn btn-danger" (click)="deleteOneUser($event)" >Delete</button>
                 </td>
             </tr>
         </tbody>
+      
     </table>
+    <div class="container mt-4" id="updateDiv" style="display: none;">
+        <form>
+          <h3>Mis à jour du compte : {{userToChange}} </h3>
+          <div class="form-group">
+            <div class="input-log">
+              <input type="text" [(ngModel)]="newPrenom" [ngModelOptions]="{standalone: true}" class="form-control" id="prenom"
+                placeholder="Prenom" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <div class="input-log">
+              <input type="text" [(ngModel)]="newNom" [ngModelOptions]="{standalone: true}" class="form-control" id="nom"
+                placeholder="Nom" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <div class="input-log">
+              <input type="email" [(ngModel)]="newEmail" [ngModelOptions]="{standalone: true}" class="form-control" id="email"
+                placeholder="Email" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <div class="input-log">
+              <input type="password" [(ngModel)]="newMdp" [ngModelOptions]="{standalone: true}" class="form-control" id="mdp"
+                placeholder="Mot de passe" required>
+            </div>
+          </div>
+    
+          <button type="submit" class="btn btn-success" (click)="updateUser2()">MAJ</button>
+      
+        </form>
+      </div>
 </div>
-<button type="submit" class="btn btn-primary mt-4">Save</button>
