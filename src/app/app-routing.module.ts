@@ -6,11 +6,13 @@ import { HomeComponent } from './home/home.component';
 import { CompetenceComponent } from './competence/competence.component';
 import { ProjetComponent } from './projet/projet.component';
 import { UserComponent } from './user/user.component';
+import { AuthLoginGuard } from './auth-login.guard';
 
 const routes: Routes = [
 
   {
-    path : '',
+    path : 'login',
+    canActivate : [AuthLoginGuard],
     component : LoginComponent
   },
   {

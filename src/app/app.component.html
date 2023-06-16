@@ -1,4 +1,15 @@
-<!--<app-login>
-
-</app-login> -->
+<nav>
+    <div class="titre"><img src="https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png">
+      <label>Projet <span>
+          <p>Ngaemoubeke Ryan</p>
+          <p>Chevrin Clément</p>
+        </span></label>
+    </div>
+    <ul>
+      <li></li>
+      <li *ngIf="isAdmin">Inscription</li>
+      <li *ngIf="!userLogged" (click)="goToLogin()">Connexion</li>
+      <li *ngIf="userLogged" >Deconnexion</li>
+    </ul>
+  </nav>
 <router-outlet></router-outlet>

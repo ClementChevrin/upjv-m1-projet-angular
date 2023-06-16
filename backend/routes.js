@@ -23,6 +23,12 @@ myRouter.route('/user/create').post(createUserFct);
 myRouter.route('/user/delete').post(deleteUserFct);
 myRouter.route('/user/update').post(updateUserFct);
 myRouter.route('/user/login').post(loginUserFct);
+
+myRouter.route('/user/logout',(req,res)=>{
+    res.clearCookie('username');
+    res.redirect('/user/login');
+})
+
 myRouter.route('/users').get(getAllUsers);
 
 // Compétences

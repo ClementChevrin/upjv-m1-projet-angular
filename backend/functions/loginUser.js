@@ -5,6 +5,70 @@ import encryptor from 'simple-encryptor'
 const key = '987654321NBVCXWMLKJH'
 var myEncryptor = encryptor(key);
 
+export function loginUser(userDetails) {
+
+    return new Promise(async (resolve, reject) => {
+
+        var userDB = await user.findOne({ email: userDetails.email });
+        var login = true;
+        var decryptedMdp = "";
+
+        if (userDB != undefined && userDB != null) {
+
+            var decryptedMdp = myEncryptor.decrypt(userDB.mdp);
+
+            if (decryptedMdp == userDetails.mdp) {
+                console.log("Ok" + "__" + decryptedMdp + "__" + userDetails.mdp);
+            } else {
+                console.log("KO" + "__" + decryptedMdp + "__" + userDetails.mdp);
+                login = false;
+            }
+        }else{
+            login = false;
+        }
+
+        try {
+            if(login){
+                resolve({status : login, mdp : decryptedMdp+"__"+userDetails.mdp+"__"+userDB,userDB});
+            }else{
+                resolve({status : login,mdp : decryptedMdp+"__"+userDetails.mdp+"__"+userDB,userDB});
+            }
+        }
+        catch(err){
+            reject(false);
+        }
+
+    })
+
+}
+
+export var loginUserFct = async (req, res) => {
+    try {
+        console.log(req.body);
+
+        var resp = await loginUser(req.body);
+        if(resp.status) {
+            res.send({ "status": true, "message": "Utilisateur Connecté" , "user" : resp.userDB});
+            console.log(resp);
+
+            req.session.user = resp.userDB;
+            req.session.authorized;
+            console.log(req.session.user.email);
+        } else {
+            res.send({ "status": false, "message": "Erreur lors de la connection"})
+            console.log(resp);
+
+
+        }
+
+    } catch (err) {
+        console.log(err);
+        res.send({ "status": false, "message": err.msg })
+    }
+}
+
+
+
 /*export async function loginUser(userDetails){
     
     const userDb = await User.findOne({email : userDetails.email});
@@ -66,62 +130,3 @@ export async function  loginUser(userDetails) {
         }
     
 } */
-
-export function loginUser(userDetails) {
-
-    return new Promise(async (resolve, reject) => {
-
-        var userDB = await user.findOne({ email: userDetails.email });
-        var login = true;
-        var decryptedMdp = "";
-
-        if (userDB != undefined && userDB != null) {
-
-            var decryptedMdp = myEncryptor.decrypt(userDB.mdp);
-
-            if (decryptedMdp == userDetails.mdp) {
-                console.log("Ok" + "__" + decryptedMdp + "__" + userDetails.mdp);
-            } else {
-                console.log("KO" + "__" + decryptedMdp + "__" + userDetails.mdp);
-                login = false;
-            }
-        }else{
-            login = false;
-        }
-
-        try {
-            if(login){
-                resolve({status : login, mdp : decryptedMdp+"__"+userDetails.mdp+"__"+userDB});
-            }else{
-                resolve({status : login,mdp : decryptedMdp+"__"+userDetails.mdp+"__"+userDB});
-            }
-        }
-        catch(err){
-            reject(false);
-        }
-
-    })
-
-}
-
-export var loginUserFct = async (req, res) => {
-    try {
-        console.log(req.body);
-
-        var resp = await loginUser(req.body);
-        if(resp.status) {
-            res.send({ "status": true, "message": "Utilisateur Connecté" })
-            console.log(resp);
-        } else {
-            res.send({ "status": false, "message": "Erreur lors de la connection"})
-            console.log(resp);
-
-        }
-
-    } catch (err) {
-        console.log(err);
-        res.send({ "status": false, "message": err.msg })
-    }
-}
-
-

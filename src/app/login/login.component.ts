@@ -34,11 +34,20 @@ export class LoginComponent {
 
       if (resultData.status) {
         this.router.navigateByUrl('/home');
+
+        //console.log(resultData.user);
+
+        if (sessionStorage.getItem('email') == null) {
+          sessionStorage.setItem('email', resultData.user.email);
+          sessionStorage.setItem('role', resultData.user.role);
+          sessionStorage.setItem('nom', resultData.user.nom);
+          sessionStorage.setItem('prenom', resultData.user.prenom);
+        }
+
       } else {
         alert("Incorrect Mdp");
         console.log("Error login");
       }
-
 
     });
   }
