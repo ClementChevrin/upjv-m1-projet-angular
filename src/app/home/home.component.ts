@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private http: HttpClient) { }
+  ngOnInit() {
+  }
+
+  getPrenom(){
+    let prenom = sessionStorage.getItem('prenom');
+    return prenom;
+  }
+  
+
 }
+
+
