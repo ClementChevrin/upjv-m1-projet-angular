@@ -8,20 +8,18 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
 
   email?: string;
   mdp?: string;
 
-  isLogin?: boolean = true;
-
   constructor(private http: HttpClient, private router: Router) { }
+  
   ngOnInit(): void { }
 
 
   login() {
-    console.log(this.email);
-    console.log(this.mdp);
 
     let data = {
       email: this.email,
@@ -30,22 +28,19 @@ export class LoginComponent {
 
     this.http.post("http://localhost:4000/user/login", data).subscribe((resultData: any) => {
 
-      console.log(resultData);
-
       if (resultData.status) {
-        this.router.navigateByUrl('/home');
-
-        //console.log(resultData.user);
 
         if (sessionStorage.getItem('email') == null) {
           sessionStorage.setItem('email', resultData.user.email);
           sessionStorage.setItem('role', resultData.user.role);
           sessionStorage.setItem('nom', resultData.user.nom);
           sessionStorage.setItem('prenom', resultData.user.prenom);
+
+          this.router.navigateByUrl('/home');
         }
 
       } else {
-        alert("Incorrect Mdp");
+        alert("Mot de passe incorrect");
         console.log("Error login");
       }
 

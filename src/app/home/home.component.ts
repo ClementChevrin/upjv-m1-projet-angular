@@ -13,7 +13,6 @@ export class HomeComponent {
   }
 
   getPrenom(){
-
     let prenom = sessionStorage.getItem('prenom');
     return prenom;
   }

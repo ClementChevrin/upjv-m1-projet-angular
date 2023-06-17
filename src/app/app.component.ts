@@ -10,23 +10,42 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Project';
 
-  userLogged : boolean = false;
-  isAdmin : boolean = false;
+  userLogged?: boolean;
+  isAdmin: boolean = false;
 
-  constructor(private http: HttpClient, private router : Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+  }
+
   ngOnInit() {
-
-    this.userlogged();
+    this.userIsLogged();
+    console.log(this.userLogged)
   }
 
-  userlogged(){
+  userIsLogged() {
+    if (sessionStorage.getItem('prenom') != null){
+      this.userLogged = true;
+    }
+    else{
+      this.userLogged = false;
+    }
+  } 
 
-  if(sessionStorage.getItem('prenom') != null)
-    this.userLogged = true;
-  }
-
-  goToLogin(){
+  goToLogin() {
     this.router.navigateByUrl('/login');
+  }
+
+  deconnexion() {
+
+    if (this.userLogged) {
+      sessionStorage.removeItem('nom');
+      sessionStorage.removeItem('prenom');
+      sessionStorage.removeItem('email');
+      sessionStorage.removeItem('role');
+
+      this.ngOnInit();
+      this.router.navigateByUrl('/login');
+    }
+
   }
 
 }
