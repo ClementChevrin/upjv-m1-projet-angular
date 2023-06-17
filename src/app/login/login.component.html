@@ -1,36 +1,27 @@
-<div class="container">
-
-  <div class="row full-height">
-    <form>
-
-      <h1>Connexion</h1>
-      <h3>Connectez vous ici !</h3>
-      <div class="form-group">
-        <label>Email</label>
-        <div class="input-log">
-          <span class="material-symbols-rounded">
-            mail
-          </span>
-          <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"
-            placeholder="Email" pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$">
-        </div>
+<div class="row full-height">
+  <form>
+    <h1>Connexion</h1>
+    <h3>Connectez vous ici !</h3>
+    <div class="form-group">
+      <label>Email</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          mail
+        </span>
+        <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"
+          placeholder="Email" pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$">
       </div>
-
-      <div class="form-group">
-        <label>Mot de passe</label>
-        <div class="input-log">
-          <span class="material-symbols-rounded">
-            lock
-          </span>
-          <input type="password" [(ngModel)]="mdp" [ngModelOptions]="{standalone: true}" class="form-control" id="mdp"
-            placeholder="Mot de passe">
-        </div>
-
+    </div>
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <div class="input-log">
+        <span class="material-symbols-rounded">
+          lock
+        </span>
+        <input type="password" [(ngModel)]="mdp" [ngModelOptions]="{standalone: true}" class="form-control" id="mdp"
+          placeholder="Mot de passe">
       </div>
-
-      <button type="submit" class="btn btn-valid" (click)="login()">Valider</button>
-
-    </form>
-
-
-  </div>
+    </div>
+    <button type="submit" class="btn btn-valid" (click)="login()">Valider</button>
+  </form>
+</div>

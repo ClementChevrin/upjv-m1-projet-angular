@@ -35,11 +35,9 @@ export class LoginComponent {
       if (resultData.status) {
         this.router.navigateByUrl('/home');
       } else {
-        alert("Incorrect Mdp");
+        alert("Votre mot de passe semble incorrect");
         console.log("Error login");
       }
-
-
     });
   }
 }
