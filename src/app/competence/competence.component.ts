@@ -22,8 +22,7 @@ export class CompetenceComponent {
     let data =
     {
       "nom": this.nom,
-      "description": this.description,
-      "codeC": this.codeC
+      "description": this.description
     };
 
     this.http.post("http://localhost:4000/competence/create", data).subscribe((result: any) => {

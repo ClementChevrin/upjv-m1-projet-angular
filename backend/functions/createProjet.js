@@ -6,22 +6,20 @@ export function createProjet(projetDetails) {
 
         var ok = true;
         var projetDB = await Projet.findOne({ codeP: projetDetails.codeP });
+        var numberOfProjet  = await Projet.count();
+        numberOfProjet++;
 
         if (projetDB == null || projetDB == undefined) { // Le projet n'existe pas
             
             var new_projet = new Projet();
-
             new_projet.nom = projetDetails.nom;
             new_projet.description = projetDetails.description;
-            new_projet.codeP = projetDetails.codeP;
             new_projet.enseigant = projetDetails.enseigant
 
-            projetDetails.codeCR.forEach(code => {
-                new_projet.codeCR.push(code);
-            });
+            new_projet.codeP = "PROJ"+numberOfProjet;
 
-            projetDetails.codeCO.forEach(code => {
-                new_projet.codeCO.push(code);
+            projetDetails.codeComp.forEach(code => {
+                new_projet.codeComp.push(code);
             });
     
         }else{
@@ -59,3 +57,4 @@ export var createProjetFct = async (req, res) => {
         console.log(err);
     }
 }
+

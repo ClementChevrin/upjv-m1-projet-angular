@@ -17,6 +17,12 @@ let User = new Schema({
     },
     role : {
         type : String
+    },
+    competences :{
+        type : Array
+    },
+    projets : {
+        type : Array
     }
 });
 

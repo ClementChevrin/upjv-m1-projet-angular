@@ -7,11 +7,16 @@ const Schema = mongoose.Schema;
 // Création du schéma Projet
 let Projet = new Schema({
     nom: {
+<<<<<<< Updated upstream
         type: String // Nom de la note
+=======
+        type: String
+>>>>>>> Stashed changes
     },
     description: {
         type: String
     },
+<<<<<<< Updated upstream
     codeCR: {
         type: Array  // Tableau des compétences requises à avoir
     },
@@ -21,6 +26,15 @@ let Projet = new Schema({
     codeP: {
         type: String // Identifiant du projet
     },
+=======
+    // Competences du projet
+    codeComp: {
+        type: Array
+    },
+    codeP: {
+        type: String // Identifiant du projet
+    },
+>>>>>>> Stashed changes
     enseigant: {
         type: String
     }

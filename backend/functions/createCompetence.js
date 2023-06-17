@@ -6,12 +6,15 @@ export function createCompetence(competenceDetails) {
 
         var ok = true;
         var competenceDB = await Competence.findOne({ codeC: competenceDetails.codeC });
+        var numberComp = await Competence.count();
+        numberComp++;
 
         if (competenceDB == null || competenceDB == undefined) { // La competence n'existe pas
             var new_competence = new Competence();
             new_competence.nom = competenceDetails.nom;
             new_competence.description = competenceDetails.description;
-            new_competence.codeC = competenceDetails.codeC
+            new_competence.codeC = 'COMP'+numberComp;
+            new_competence.etat = "";
         } else {
             ok = false;
             console.log("La compétence existe déjà");
