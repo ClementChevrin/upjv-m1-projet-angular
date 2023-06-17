@@ -72,10 +72,18 @@ form {
 
 .full-height {
       height: calc(100vh - 68px);
+      width: 100%;
       display: flex;
 }
 
 h3 {
       font-size: 18px;
       color: #515151;
+}
+
+#error-message {
+      color: red;
+      font-size: 15px;
+      height: 23px;
+      font-family: 'Poppins', sans-serif;
 }

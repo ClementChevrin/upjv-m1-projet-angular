@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { CompetenceComponent } from './competence/competence.component';
 import { ProjetComponent } from './projet/projet.component';
-import { UserComponent } from './user/user.component'
+import { UserComponent } from './user/user.component';
+import { HomeStudentComponent } from './home-student/home-student.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserComponent } from './user/user.component'
     HomeComponent,
     CompetenceComponent,
     ProjetComponent,
-    UserComponent
+    UserComponent,
+    HomeStudentComponent
   ],
   imports: [
     BrowserModule,
