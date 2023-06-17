@@ -46,7 +46,7 @@ label {
       padding: 5px 10px;
       color: white;
       text-align: center;
-      width: 100px;
+      width: 140px;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       margin-top: 20px;
@@ -55,7 +55,7 @@ label {
 
 .btn-valid:hover {
       background-color: #60a351;
-      width: 110px;
+      width: 150px;
       transition: all 0.1s ease;
 }
 
