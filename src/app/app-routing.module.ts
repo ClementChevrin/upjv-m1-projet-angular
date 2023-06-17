@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { CompetenceComponent } from './competence/competence.component';
 import { ProjetComponent } from './projet/projet.component';
 import { UserComponent } from './user/user.component';
+import { HomeStudentComponent } from './home-student/home-student.component';
+
 
 const routes: Routes = [
   {
@@ -15,6 +17,10 @@ const routes: Routes = [
   {
     path: 'home', // Chemin "/home"
     component: HomeComponent // Composant à afficher lorsque le chemin est "/home" (rien)
+  },
+  {
+    path: 'home-student', // Chemin "/home-student"
+    component: HomeStudentComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
   },
   {
     path: 'register', // Chemin "/register"
