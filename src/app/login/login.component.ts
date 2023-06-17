@@ -30,6 +30,7 @@ export class LoginComponent {
     this.http.post("http://localhost:4000/user/login", data).subscribe((resultData: any) => {
 
       if (resultData.status) {
+
         // Si les informations de connexion sont valides, enregistrer les détails de l'utilisateur dans la session
         if (sessionStorage.getItem('email') == null) {
           sessionStorage.setItem('email', resultData.user.email);

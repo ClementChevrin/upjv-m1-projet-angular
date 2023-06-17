@@ -23,18 +23,18 @@ export function loginUser(userDetails) {
                 console.log("KO" + "__" + decryptedMdp + "__" + userDetails.mdp);
                 login = false;
             }
-        }else{
+        } else {
             login = false;
         }
 
         try {
-            if(login){
-                resolve({status : login, mdp : decryptedMdp+"__"+userDetails.mdp+"__"+userDB,userDB});
-            }else{
-                resolve({status : login,mdp : decryptedMdp+"__"+userDetails.mdp+"__"+userDB,userDB});
+            if (login) {
+                resolve({ status: login, mdp: decryptedMdp + "__" + userDetails.mdp + "__" + userDB, userDB });
+            } else {
+                resolve({ status: login, mdp: decryptedMdp + "__" + userDetails.mdp + "__" + userDB, userDB });
             }
         }
-        catch(err){
+        catch (err) {
             reject(false);
         }
 
@@ -47,15 +47,15 @@ export var loginUserFct = async (req, res) => {
         console.log(req.body);
 
         var resp = await loginUser(req.body);
-        if(resp.status) {
-            res.send({ "status": true, "message": "Utilisateur Connecté" , "user" : resp.userDB});
-            console.log(resp);
+        if (resp.status) {
+            res.send({ "status": true, "message": "Utilisateur Connecté", "user": resp.userDB });
+            console.log("", resp, "");
 
             req.session.user = resp.userDB;
             req.session.authorized;
             console.log(req.session.user.email);
         } else {
-            res.send({ "status": false, "message": "Erreur lors de la connection"})
+            res.send({ "status": false, "message": "Erreur lors de la connection" })
             console.log(resp);
 
 
