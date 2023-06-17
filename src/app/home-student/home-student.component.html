@@ -17,10 +17,10 @@
                   </div>
             </header>
             <div id="list-proj">
-                  <div class="card-projet">
-                        <input type="radio" name="accordion" id="cb1" />
+                  <div *ngFor="let projet of [0,1,2,3,4]" class="card-projet">
+                        <input type="radio" name="accordion" id="cb{{projet}}" />
                         <section class="box">
-                              <label class="box-title" for="cb1">Nom a modifier</label>
+                              <label class="box-title" for="cb{{projet}}">Nom a modifier</label>
                               <label class="box-close" for="acc-close"></label>
                               <div class="box-content">
                                     <h2>Description :</h2>
@@ -35,87 +35,27 @@
                                                 </tr>
                                           </thead>
                                           <tbody>
-                                                <tr>
-                                                      <td>Compétence type non ac</td>
-                                                      <td>Capacité à utiliser Angular</td>
-                                                      <td class="nac">Non acquis
+                                                <tr *ngFor="let competence of [0,1,2,3,4]">
+                                                      <td>Compétence n°{{competence}}</td>
+                                                      <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                            Distinctio libero beatae dignissimos quasi necessitatibus
+                                                            minima tempora laudantium cupiditate, eaque ut inventore
+                                                            neque? Perferendis doloribus odit quam sunt. Commodi,
+                                                            repudiandae hic.</td>
+                                                      <td *ngIf="competence === 0 || competence === 3" class="nac">Non
+                                                            acquis
                                                             <div class="progress-bar">
                                                                   <div class="progress"></div>
                                                             </div>
                                                       </td>
-                                                </tr>
-                                                <tr>
-                                                      <td>Typescript</td>
-                                                      <td>Capacité à utiliser Typescript, a comprendre sont
-                                                            fonctionnement et
-                                                            la capacité de faire des scripts efficaces</td>
-                                                      <td class="eac">En cours d'acquisition
+                                                      <td *ngIf="competence === 1 || competence === 4" class="eac">En
+                                                            cours
+                                                            d'acquisition
                                                             <div class="progress-bar">
                                                                   <div class="progress"></div>
                                                             </div>
                                                       </td>
-                                                </tr>
-                                                <tr>
-                                                      <td>HTML/CSS</td>
-                                                      <td>Capacité à utiliser HTML/CSS</td>
-                                                      <td class="ac">Acquis
-                                                            <div class="progress-bar">
-                                                                  <div class="progress"></div>
-                                                            </div>
-                                                      </td>
-                                                </tr>
-                                          </tbody>
-                                    </table>
-                                    <a href="#">Se noter</a>
-                              </div>
-                        </section>
-                  </div>
-                  <div class="card-projet">
-                        <input type="radio" name="accordion" id="cb2" />
-                        <section class="box">
-                              <label class="box-title" for="cb2">ProjetTS</label>
-                              <label class="box-close" for="acc-close"></label>
-                              <div class="box-content">
-                                    <h2>Description :</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit est excepturi
-                                          dolores
-                                          asperiores perspiciatis assumenda vel. Impedit, earum veritatis tempore,
-                                          provident
-                                          doloribus modi officiis aspernatur omnis, consectetur aliquid dolores qui.</p>
-                                    <h2>Compétence à acquérir :</h2>
-                                    <table>
-                                          <thead>
-                                                <tr>
-                                                      <th>Nom</th>
-                                                      <th>Description</th>
-                                                      <th>Status</th>
-                                                </tr>
-                                          </thead>
-                                          <tbody>
-                                                <tr>
-                                                      <td>Angular</td>
-                                                      <td>Capacité à utiliser Angular</td>
-                                                      <td class="nac">Non acquis
-                                                            <div class="progress-bar">
-                                                                  <div class="progress"></div>
-                                                            </div>
-                                                      </td>
-                                                </tr>
-                                                <tr>
-                                                      <td>Typescript</td>
-                                                      <td>Capacité à utiliser Typescript, a comprendre sont
-                                                            fonctionnement et
-                                                            la capacité de faire des scripts efficaces</td>
-                                                      <td class="eac">En cours d'acquisition
-                                                            <div class="progress-bar">
-                                                                  <div class="progress"></div>
-                                                            </div>
-                                                      </td>
-                                                </tr>
-                                                <tr>
-                                                      <td>HTML/CSS</td>
-                                                      <td>Capacité à utiliser HTML/CSS</td>
-                                                      <td class="ac">Acquis
+                                                      <td *ngIf="competence === 2" class="ac">Acquis
                                                             <div class="progress-bar">
                                                                   <div class="progress"></div>
                                                             </div>

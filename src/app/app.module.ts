@@ -11,7 +11,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { CompetenceComponent } from './competence/competence.component';
 import { ProjetComponent } from './projet/projet.component';
 import { UserComponent } from './user/user.component';
-import { HomeStudentComponent } from './home-student/home-student.component'
+import { HomeStudentComponent } from './home-student/home-student.component';
+import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
+import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HomeStudentComponent } from './home-student/home-student.component'
     CompetenceComponent,
     ProjetComponent,
     UserComponent,
-    HomeStudentComponent
+    HomeStudentComponent,
+    HomeTeacherComponent,
+    HomeStudentNewprojComponent
   ],
   imports: [
     BrowserModule,

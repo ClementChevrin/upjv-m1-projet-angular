@@ -7,6 +7,8 @@ import { CompetenceComponent } from './competence/competence.component';
 import { ProjetComponent } from './projet/projet.component';
 import { UserComponent } from './user/user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
+import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
+import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: 'home-student', // Chemin "/home-student"
     component: HomeStudentComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+  },
+  {
+    path: 'home-student/newproj', // Chemin "/home-student"
+    component: HomeStudentNewprojComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+  },
+  {
+    path: 'home-teacher', // Chemin "/home-student"
+    component: HomeTeacherComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
   },
   {
     path: 'register', // Chemin "/register"
