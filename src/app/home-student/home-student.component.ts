@@ -1,4 +1,6 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-student',
@@ -6,9 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-student.component.css']
 })
 export class HomeStudentComponent {
-  constructor() {
 
-  }
+  myProjects : any[] = [];
+  myEmail: any = sessionStorage.getItem('email');  
+
+  constructor(private http: HttpClient, private router: Router) {
+    this.getMyProjects();
+   }
+
 
   ngOnInit(): void {
     // Récupérer l'élément de recherche
@@ -75,4 +82,26 @@ export class HomeStudentComponent {
       });
     }
   }
+
+
+  getMyProjects(){
+
+    if(sessionStorage.getItem('email') != null){
+       this.myEmail = sessionStorage.getItem('email');
+    }
+
+    let data = 
+    {
+      email : this.myEmail
+    };
+
+    let myParams = new HttpParams().set("email",this.myEmail)
+
+    this.http.get("http://localhost:4000/user/projects",{params : myParams})
+    .subscribe((result: any) => {
+      console.log(result);
+      console.log(this.myEmail);
+      this.myProjects = result;
+      console.log(this.myProjects);
+    });  }
 }

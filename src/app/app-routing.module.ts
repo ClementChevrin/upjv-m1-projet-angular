@@ -9,12 +9,14 @@ import { UserComponent } from './user/user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
+import { AuthLoginGuard } from './auth-login.guard';
 
 
 const routes: Routes = [
   {
     path: '', // Chemin racine (route par défaut)
-    component: LoginComponent // Composant à afficher lorsque le chemin est vide (Page de connexion)
+    component: LoginComponent, // Composant à afficher lorsque le chemin est vide (Page de connexion)
+    canActivate : [AuthLoginGuard]
   },
   {
     path: 'home', // Chemin "/home"

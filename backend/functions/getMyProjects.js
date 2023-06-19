@@ -6,7 +6,7 @@ export var getAllMyProject = async (req, res) => {
     
         let myProject = await User.aggregate([
             {
-                $match: { email : req.body.email}
+                $match: { email : req.params.email}
             },
             {
                 $unwind: "$projets"
@@ -22,7 +22,13 @@ export var getAllMyProject = async (req, res) => {
             {
                 $project :{
                     "_id" : 0,
-                    "projets._id" : 0
+                    "projets._id" : 0,
+                    "competences" : 0,
+                    "prenom" : 0,
+                    "nom" : 0,
+                    "email" : 0,
+                    "mdp" : 0,
+                    "role" : 0
                 }
             }
             

@@ -14,7 +14,7 @@ export function createCompetence(competenceDetails) {
             new_competence.nom = competenceDetails.nom;
             new_competence.description = competenceDetails.description;
             new_competence.codeC = 'COMP'+numberComp;
-            new_competence.etat = "";
+            new_competence.etat = 0;
         } else {
             ok = false;
             console.log("La compétence existe déjà");
