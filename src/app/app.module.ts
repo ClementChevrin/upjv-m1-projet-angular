@@ -13,7 +13,10 @@ import { ProjetComponent } from './projet/projet.component';
 import { UserComponent } from './user/user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
-import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component'
+import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
+import { HomeTeacherNewprojComponent } from './home-teacher-newproj/home-teacher-newproj.component';
+import { HomeTeacherNoteprojComponent } from './home-teacher-noteproj/home-teacher-noteproj.component';
+import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { HomeStudentNewprojComponent } from './home-student-newproj/home-student
     UserComponent,
     HomeStudentComponent,
     HomeTeacherComponent,
-    HomeStudentNewprojComponent
+    HomeStudentNewprojComponent,
+    HomeTeacherNewprojComponent,
+    HomeTeacherNoteprojComponent,
+    HomeStudentNoteprojComponent
   ],
   imports: [
     BrowserModule,

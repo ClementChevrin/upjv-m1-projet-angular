@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
+import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'home-student/newproj', // Chemin "/home-student"
     component: HomeStudentNewprojComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+  },
+  {
+    path: 'home-student/noteproj/:id', // Chemin "/home-student"
+    component: HomeStudentNoteprojComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
   },
   {
     path: 'home-teacher', // Chemin "/home-student"

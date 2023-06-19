@@ -1,0 +1,40 @@
+<div>
+      <div class="page">
+            <div id="list-proj">
+                  <div class="card-projet">
+                        <div class="box-content">
+                              <h2>Description :</h2>
+                              <p>Description a modifier</p>
+                              <h2>Compétence à acquérir :</h2>
+                              <table>
+                                    <thead>
+                                          <tr>
+                                                <th>Nom</th>
+                                                <th>Description</th>
+                                                <th>Status</th>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr *ngFor="let competence of [0,1,2,3,4]">
+                                                <td>Compétence n°{{competence}}</td>
+                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                      Distinctio libero beatae dignissimos quasi necessitatibus
+                                                      minima tempora laudantium cupiditate, eaque ut inventore
+                                                      neque? Perferendis doloribus odit quam sunt. Commodi,
+                                                      repudiandae hic.</td>
+                                                <td>
+                                                      <select name="Status" id="status-0">
+                                                            <option value="nacquis">Non acquis</option>
+                                                            <option value="eacquis">En cous d'acquisition</option>
+                                                            <option value="acquis">Acquis</option>
+                                                      </select>
+                                                </td>
+                                          </tr>
+                                    </tbody>
+                              </table>
+                              <button>Valider</button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>

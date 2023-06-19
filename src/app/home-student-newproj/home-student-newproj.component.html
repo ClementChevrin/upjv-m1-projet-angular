@@ -1,1 +1,48 @@
-<p>home-student-newproj works!</p>
+<div>
+      <div class="page">
+            <header class="projet-list">
+                  <label for="acc-close" class="box-title">Liste des projets de l'étudiants</label>
+                  <div class="action">
+                        <div class="search-bloc">
+                              <span class="material-symbols-rounded">
+                                    search
+                              </span>
+                              <input type="text" name="search" id="search" placeholder="Recherche">
+                        </div>
+                  </div>
+            </header>
+            <div id="list-proj">
+                  <div *ngFor="let projet of [0,1,2,3,4]" class="card-projet">
+                        <input type="radio" name="accordion" id="cb{{projet}}" />
+                        <section class="box">
+                              <label class="box-title" for="cb{{projet}}">Nom a modifier</label>
+                              <label class="box-close" for="acc-close"></label>
+                              <div class="box-content">
+                                    <h2>Description :</h2>
+                                    <p>Description a modifier</p>
+                                    <h2>Compétence à acquérir :</h2>
+                                    <table>
+                                          <thead>
+                                                <tr>
+                                                      <th>Nom</th>
+                                                      <th>Description</th>
+                                                </tr>
+                                          </thead>
+                                          <tbody>
+                                                <tr *ngFor="let competence of [0,1,2,3,4]">
+                                                      <td>Compétence n°{{competence}}</td>
+                                                      <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                            Distinctio libero beatae dignissimos quasi necessitatibus
+                                                            minima tempora laudantium cupiditate, eaque ut inventore
+                                                            neque? Perferendis doloribus odit quam sunt. Commodi,
+                                                            repudiandae hic.</td>
+                                                </tr>
+                                          </tbody>
+                                    </table>
+                                    <button>Participer</button>
+                              </div>
+                        </section>
+                  </div>
+            </div>
+      </div>
+</div>
