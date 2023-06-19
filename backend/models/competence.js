@@ -12,11 +12,11 @@ let Competence = new Schema({
     description: {
         type: String // Description de la compétence
     },
-    codeC: {
-        type: String // Identifiant de la compétence
+    codeC:{
+        type : String // Identifiant de la compétence
     },
-    etat: {
-        type: String // Acquis | Non Acquis | En cours
+    etat:{
+        type : Number // Acquis | Non Acquis | En cours
     }
 });
 

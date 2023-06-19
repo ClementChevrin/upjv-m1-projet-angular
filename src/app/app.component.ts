@@ -43,7 +43,7 @@ export class AppComponent {
       sessionStorage.removeItem('role');
 
       this.ngOnInit();
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/');
     }
 
   }

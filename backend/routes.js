@@ -23,7 +23,7 @@ const myRouter = express.Router();
 // Utilisateurs
 myRouter.route('/users').get(getAllUsers);
 // Users - Projects
-myRouter.route('/user/projets').get(getAllMyProject);
+myRouter.route('/user/projets/:email').get(getAllMyProject);
 myRouter.route('/user/projet/add').post(addProjetToUserFct);
 // Users - Competences
 myRouter.route('/user/create').post(createUserFct);
