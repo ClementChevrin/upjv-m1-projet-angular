@@ -6,11 +6,11 @@ export var getAllMyProject = async (req, res) => {
     
         let myProject = await User.aggregate([
             {
-                $match: { email : req.params.email}
+                $match: { email : req.param('email')}
             },
-            {
+          /*  {
                 $unwind: "$projets"
-            },
+            },*/
             {
                 $lookup:{
                     from: "projets",
@@ -35,6 +35,7 @@ export var getAllMyProject = async (req, res) => {
         ]);
 
         res.json(myProject);
+        console.log(req.params.email);
     }
     catch(err){
 

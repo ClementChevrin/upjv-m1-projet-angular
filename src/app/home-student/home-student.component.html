@@ -17,14 +17,14 @@
                   </div>
             </header>
             <div id="list-proj">
-                  <div *ngFor="let projet of [0,1,2,3,4]" class="card-projet">
+                  <div *ngFor="let projet of myProjects" class="card-projet">
                         <input type="radio" name="accordion" id="cb{{projet}}" />
                         <section class="box">
-                              <label class="box-title" for="cb{{projet}}">Nom a modifier</label>
+                              <label class="box-title" for="cb{{projet}}">{{projet.nom}}</label>
                               <label class="box-close" for="acc-close"></label>
                               <div class="box-content">
-                                    <h2>Description :</h2>
-                                    <p>Description a modifier</p>
+                                    <h2>Description :</h2> <!--Description-->
+                                    <p>{{projet.description}}</p>
                                     <h2>Compétence à acquérir :</h2>
                                     <table>
                                           <thead>

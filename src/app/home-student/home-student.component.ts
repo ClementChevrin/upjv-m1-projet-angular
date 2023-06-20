@@ -95,18 +95,12 @@ export class HomeStudentComponent {
       this.myEmail = sessionStorage.getItem('email');
     }
 
-    let data =
-    {
-      email: this.myEmail
-    };
+    let param = { "email": this.myEmail };
+    const myUrl = "http://localhost:4000/user/projets";
 
-    let myParams = new HttpParams().set("email", this.myEmail)
-
-    this.http.get("http://localhost:4000/user/projects", { params: myParams })
+    this.http.get(myUrl, { params: param })
       .subscribe((result: any) => {
-        console.log(result);
-        console.log(this.myEmail);
-        this.myProjects = result;
+        this.myProjects = result[0].myProjects;
         console.log(this.myProjects);
       });
   }
