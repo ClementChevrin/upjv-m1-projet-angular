@@ -25,14 +25,18 @@ export function createProjet(projetDetails) {
             new_projet.codeP = "PROJ"+numberOfProjet;
 
             projetDetails.competences.forEach( async code => {
-              //  new_projet.codeComp.push(code);
-              try{
+    
                 var competence = await Competence.findOne({codeC : code})
-                new_projet.competences.push(competence);
-              }catch(err){
-                console.log(err);
-              }
+                console.log(competence);
+
+                var obj = competence.toJSON();
+                console.log(obj);
+
+               new_projet.competences.push(competence)
+               new_projet.save();
             });
+            
+
 
     
         }else{

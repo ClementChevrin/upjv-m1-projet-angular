@@ -13,9 +13,15 @@ let Projet = new Schema({
         type: String
     },
     // Competences du projet
-    competences: {
-        type: Array
-    },
+    competences: [
+        {
+            _id : String,
+            nom : String,
+            description : String,
+            codeC : String,
+            etat : Number
+        }
+    ],
     codeP: {
         type: String // Identifiant du projet
     },
