@@ -1,4 +1,7 @@
 import Projet from '../models/projet.js'
+import Competence from '../models/competence.js';
+import { createCompetence } from './createCompetence.js';
+import competence from '../models/competence.js';
 
 export function createProjet(projetDetails) {
 
@@ -14,13 +17,23 @@ export function createProjet(projetDetails) {
             var new_projet = new Projet();
             new_projet.nom = projetDetails.nom;
             new_projet.description = projetDetails.description;
+
+            if(projetDetails.enseigant != null && projetDetails != undefined){
             new_projet.enseigant = projetDetails.enseigant
+            }
 
             new_projet.codeP = "PROJ"+numberOfProjet;
 
-            projetDetails.codeComp.forEach(code => {
-                new_projet.codeComp.push(code);
+            projetDetails.competences.forEach( async code => {
+              //  new_projet.codeComp.push(code);
+              try{
+                var competence = await Competence.findOne({codeC : code})
+                new_projet.competences.push(competence);
+              }catch(err){
+                console.log(err);
+              }
             });
+
     
         }else{
             ok = false;

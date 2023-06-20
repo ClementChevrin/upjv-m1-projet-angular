@@ -13,7 +13,7 @@ let Projet = new Schema({
         type: String
     },
     // Competences du projet
-    codeComp: {
+    competences: {
         type: Array
     },
     codeP: {
@@ -25,6 +25,8 @@ let Projet = new Schema({
 });
 
 export default mongoose.model('Projet', Projet);
+
+
 
 
 
