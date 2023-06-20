@@ -8,6 +8,7 @@ import { ProjetComponent } from './projet/projet.component';
 import { UserComponent } from './user/user.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
+import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
 import { AuthLoginGuard } from './auth-login.guard';
 

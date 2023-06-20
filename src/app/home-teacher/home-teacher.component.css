@@ -194,7 +194,7 @@ header.projet-list .action .search-bloc input {
 }
 
 .card-projet input:checked+.box .box-content table tr td {
-      padding-right: 70px;
+      padding: 10px 70px 10px 10px;
 }
 
 .card-projet input:checked+.box .box-content table tr td.ac,

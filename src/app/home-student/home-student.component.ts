@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class HomeStudentComponent {
 
-  myProjects : any[] = [];
-  myEmail: any = sessionStorage.getItem('email');  
+  myProjects: any[] = [];
+  myEmail: any = sessionStorage.getItem('email');
 
   constructor(private http: HttpClient, private router: Router) {
     this.getMyProjects();
-   }
+  }
 
 
   ngOnInit(): void {
@@ -89,24 +89,25 @@ export class HomeStudentComponent {
   }
 
 
-  getMyProjects(){
+  getMyProjects() {
 
-    if(sessionStorage.getItem('email') != null){
-       this.myEmail = sessionStorage.getItem('email');
+    if (sessionStorage.getItem('email') != null) {
+      this.myEmail = sessionStorage.getItem('email');
     }
 
-    let data = 
+    let data =
     {
-      email : this.myEmail
+      email: this.myEmail
     };
 
-    let myParams = new HttpParams().set("email",this.myEmail)
+    let myParams = new HttpParams().set("email", this.myEmail)
 
-    this.http.get("http://localhost:4000/user/projects",{params : myParams})
-    .subscribe((result: any) => {
-      console.log(result);
-      console.log(this.myEmail);
-      this.myProjects = result;
-      console.log(this.myProjects);
-    });  }
+    this.http.get("http://localhost:4000/user/projects", { params: myParams })
+      .subscribe((result: any) => {
+        console.log(result);
+        console.log(this.myEmail);
+        this.myProjects = result;
+        console.log(this.myProjects);
+      });
+  }
 }
