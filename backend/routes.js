@@ -16,6 +16,7 @@ import { getAllCpt } from './functions/getAllCpt.js';
 import user from './models/user.js';
 import { getAllMyProject } from './functions/getMyProjects.js';
 import { addProjetToUserFct } from './functions/addProjetToUser.js';
+import { addCompToProjetFct } from './functions/addCompToProjet.js';
 
 
 const myRouter = express.Router();
@@ -42,6 +43,7 @@ myRouter.route('/competences').get(getAllCpt);
 
 // Projets
 myRouter.route('/projet/create').post(createProjetFct);
+myRouter.route('/projet/create/competence').post(addCompToProjetFct);
 
 /*
 myRouter.route('/notes').get(async (req,res) =>{
