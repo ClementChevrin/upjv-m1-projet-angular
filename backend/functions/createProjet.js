@@ -12,12 +12,13 @@ export function createProjet(projetDetails) {
         var numberOfProjet  = await Projet.count();
         numberOfProjet++;
 
-        projetDetails.competences.forEach( async code => {
+
+       /* projetDetails.competences.forEach( async code => {
     
             var competence = await Competence.findOne({codeC : code})
             new_projet.competences.push(competence);
             new_projet.save();
-       }); 
+       }); */
 
         if (projetDB == null || projetDB == undefined) { // Le projet n'existe pas
             
@@ -30,6 +31,8 @@ export function createProjet(projetDetails) {
             }
 
             new_projet.codeP = "PROJ"+numberOfProjet;
+            new_projet.competences = [];
+            new_projet.save();
 
 
         }else{
