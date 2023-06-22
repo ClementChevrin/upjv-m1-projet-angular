@@ -1,0 +1,80 @@
+.input-log {
+      display: flex;
+      flex-direction: row;
+      background-color: rgb(233, 233, 233);
+      border-radius: 4px;
+}
+
+.input-log span {
+      font-size: 30px;
+      padding: 15px;
+      color: #515151;
+}
+
+.input-log input {
+      border: none;
+      padding: 5px 15px;
+      height: 50px;
+      color: #181818;
+      background-color: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+}
+
+.input-log input:focus,
+.input-log input:focus-visible,
+.input-log input:hover {
+      outline: none;
+      border: none;
+      box-shadow: none;
+}
+
+
+.form-group {
+      margin-bottom: 10px;
+}
+
+label {
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+}
+
+.btn-valid {
+      background-color: #529f41;
+      padding: 5px 10px;
+      color: white;
+      text-align: center;
+      width: 100px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: all 0.1s ease;
+}
+
+.btn-valid:hover {
+      background-color: #60a351;
+      transition: all 0.1s ease;
+}
+
+form {
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+      border-radius: 8px;
+      width: 1100px;
+      margin: auto;
+      padding: 65px;
+}
+
+.full-height {
+      height: calc(100vh - 68px);
+      display: flex;
+}
+
+h3 {
+      font-size: 18px;
+      color: #515151;
+      margin-bottom: 60px;
+}

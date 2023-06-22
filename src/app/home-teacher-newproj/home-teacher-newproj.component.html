@@ -1,1 +1,45 @@
-<p>home-teacher-newproj works!</p>
+<div class="card" ng-init=getCompetences()>
+      <h1>Creation Projet</h1>
+
+      <form>
+            <div class="form-group">
+                  <label>Nom du projet</label>
+                  <input type="text" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" class="form-control"
+                        id="nom" placeholder="Nom du projt">
+            </div>
+
+            <div class="form-group">
+                  <label>Description</label>
+                  <input type="text" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"
+                        class="form-control" id="description" placeholder="Description">
+            </div>
+
+            <div class="form-group">
+
+            </div>
+
+            <div class="form-group">
+                  <table class="table">
+                        <thead>
+                              <tr>
+                                    <th scope="col">competences</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr *ngFor="let c of competences">
+                                    <th scope="row">
+                                          <input type="checkbox" />
+                                    </th>
+                                    <td>{{c.nom}}</td>
+                                    <td>{{c.codeC}}</td>
+                              </tr>
+                        </tbody>
+                  </table>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary mt-4" (click)="createProjet()">Save</button>
+
+
+      </form>
+</div>

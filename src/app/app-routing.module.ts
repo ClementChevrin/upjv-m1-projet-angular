@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { AuthLoginGuard } from './auth-login.guard';
 import { CompetenceComponent } from './competence/competence.component';
-import { ProjetComponent } from './projet/projet.component';
-import { UserComponent } from './user/user.component';
+import { HomeComponent } from './home/home.component';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
 import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
-import { AuthLoginGuard } from './auth-login.guard';
-
+import { HomeTeacherNewprojComponent } from './home-teacher-newproj/home-teacher-newproj.component';
+import { LoginComponent } from './login/login.component';
+import { NgModule } from '@angular/core';
+import { ProjetComponent } from './projet/projet.component';
+import { RegisterComponent } from './register/register.component';
+import { RouterModule, Routes } from '@angular/router';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'home-teacher', // Chemin "/home-student"
     component: HomeTeacherComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+  },
+  {
+    path: 'home-teacher/newproj', // Chemin "/home-student"
+    component: HomeTeacherNewprojComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
   },
   {
     path: 'register', // Chemin "/register"
