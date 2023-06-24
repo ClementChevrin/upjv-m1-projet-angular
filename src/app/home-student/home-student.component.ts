@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,9 +11,10 @@ import { Router } from '@angular/router';
 export class HomeStudentComponent {
 
   myProjects: any[] = [];
-  myProjets : any[] = [];
+  myProjets: any[] = [];
+  etat : any;
   myEmail: any = sessionStorage.getItem('email');
-  myPrenom : any = sessionStorage.getItem('prenom');
+  myPrenom: any = sessionStorage.getItem('prenom');
 
   constructor(private http: HttpClient, private router: Router) {
     this.getMyProjects();
@@ -90,6 +92,39 @@ export class HomeStudentComponent {
     }
   }
 
+  addProjet() {
+    this.router.navigateByUrl('home-student/newproj');
+  }
+
+  seNoter(event: { target: any; srcElement: any; currentTarget: any; }) {
+
+    // Récupération du compte à modifier
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    var indexProjet = value.substring(0, 1);
+    var indexComp = value.substring(1, 2);
+
+    //console.log(this.etat + "  projet : " + indexProjet + " competence :" + indexComp);
+    let data = {
+      "iP" : indexProjet,
+      "iC" : indexComp,
+      "email" : this.myEmail,
+      "etat" : this.etat
+    }
+
+    
+    let currentUrl = this.router.url;
+
+    this.http.post("http://localhost:4000/user/updateCompetences",data).subscribe((result :any) =>{
+
+      location.reload();
+    
+    })
+
+    }
+    
 
   getMyProjects() {
 
@@ -98,16 +133,9 @@ export class HomeStudentComponent {
     }
 
     let param = { "email": this.myEmail };
-    const myUrl = "http://localhost:4000/user/projets";
     const myUrl2 = "http://localhost:4000/user/mesProjet";
 
-    /*this.http.get(myUrl, { params: param })
-      .subscribe((result: any) => {
-        this.myProjects = result[0].myProjects;
-        console.log(this.myProjects);
-      }); */
-
-      this.http.get(myUrl2, { params: param })
+    this.http.get(myUrl2, { params: param })
       .subscribe((result: any) => {
         //this.myProjets = result;
         this.myProjets = result[0].projetsArray;

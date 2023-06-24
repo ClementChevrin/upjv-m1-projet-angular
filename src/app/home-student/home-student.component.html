@@ -9,21 +9,21 @@
                               </span>
                               <input type="text" name="search" id="search" placeholder="Recherche">
                         </div>
-                        <a href="/home-student/newproj">
+                        <button (click)="addProjet()">
                               <span class="material-symbols-rounded">
                                     add
                               </span>Ajouter un projet
-                        </a>
+                        </button>
                   </div>
             </header>
             <div id="list-proj">
-                  <div *ngFor="let projet of myProjets" class="card-projet">
+                  <div *ngFor="let projet of myProjets; index as i;" class="card-projet">
                         <input type="radio" name="accordion" id="cb{{projet}}" />
                         <section class="box">
-                              <label class="box-title" for="cb{{projet}}">{{projet.nom}}</label>
+                              <label class="box-title" for="cb{{projet}}">{{projet.nom}}{{i}}</label>
                               <label class="box-close" for="acc-close"></label>
                               <div class="box-content">
-                                    <h2>Description :</h2> <!--Description-->
+                                    <h2>Description :</h2>
                                     <p>{{projet.description}}</p>
                                     <h2>Compétence à acquérir :</h2>
                                     <table>
@@ -35,8 +35,8 @@
                                                 </tr>
                                           </thead>
                                           <tbody>
-                                                <tr *ngFor="let competence of projet.competences">
-                                                      <td>{{competence.nom}}</td>
+                                                <tr *ngFor="let competence of projet.competences; index as i2;">
+                                                      <td>{{competence.nom}}{{i2}}</td>
                                                       <td>{{competence.description}}</td>
                                                       <td *ngIf="competence.etat === 0 || competence.etat === 3"
                                                             class="nac">Non
@@ -58,10 +58,21 @@
                                                                   <div class="progress"></div>
                                                             </div>
                                                       </td>
+                                                      <select name="etats" [(ngModel)]="etat"
+                                                            [ngModelOptions]="{standalone: true}" id="role"
+                                                            class="form-control" required>
+                                                            <option value=0>Non Acquis</option>
+                                                            <option value=1>En Cours</option>
+                                                            <option value=2>Acquis</option>
+                                                      </select>
+                                                      <button id={{i}}{{i2}} (click)="seNoter($event)">Mettre a
+                                                            jour</button>
                                                 </tr>
                                           </tbody>
                                     </table>
-                                    <a href="#">Se noter</a>
+                                    <!--<a href="#">Se noter</a>-->
+                                    <!--<button class="btn-success">Se noter</button><br><br>-->
+                                    <!--<p>0 : Non acquis | 1 : En cours | 2 : Acquis</p>-->
                               </div>
                         </section>
                   </div>

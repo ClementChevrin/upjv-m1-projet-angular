@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,8 +7,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-student-newproj.component.css']
 })
 export class HomeStudentNewprojComponent {
-  constructor() {
 
+  projets: any[] = [];
+  myEmail : any = sessionStorage.getItem('email');
+
+  constructor(private http : HttpClient) {
+    this.projetToAdd();
+  }
+
+  projetToAdd(){
+
+    let param = { "email": this.myEmail };
+    const myUrl = "http://localhost:4000/user/projetsRestants";
+
+    this.http.get(myUrl, { params: param })
+      .subscribe((result: any) => {
+        console.log(result);
+
+        this.projets = result;
+      })
+
+    this.http.get("http://localhost:4000/user/projetsRestants")
   }
 
 
