@@ -36,7 +36,7 @@ createUser(){
   {
     if(result.status){
     alert("Utilisateur enregistré");
-    this.router.navigateByUrl("/register");
+    this.router.navigateByUrl("/users");
     }
     
     else{

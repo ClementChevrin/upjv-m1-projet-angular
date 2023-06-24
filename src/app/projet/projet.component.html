@@ -1,4 +1,4 @@
-<div class="container mt-4" ng-init=getCompetences()>
+<!--<div class="container mt-4" ng-init=getCompetences()>
 
     <div class="card">
         <h1>Creation Projet</h1>
@@ -43,4 +43,45 @@
 
 
         </form>
-    </div>
+    </div> -->
+    <div class="container mt-4">
+        <form>
+          <h2>Créer votre nouveau projet</h2>
+          <div class="form-group">
+            <label>Nom Compétence</label>
+            <div class="input-log">
+              <input type="text" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}"  class="form-control" id="nom"
+                placeholder="Nom de la compétence">
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label n>Description</label>
+            <div class="input-log">
+              <input type="text" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" class="form-control"
+                id="description" placeholder="Description">
+            </div>
+          </div>
+          <div class="form-group">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">LISTE DES COMPETENCES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of competences">
+                        <th scope="row">
+                            <input value = {{c.codeC}} class="comps" type ="checkbox"/>
+                        </th>
+                        <td>{{c.nom}}</td><td id="comp" >{{c.codeC}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+
+          <button type="submit" (click)="createProjet()" class="btn btn-valid mt-4">Créer</button>
+      
+        </form>
+      </div>

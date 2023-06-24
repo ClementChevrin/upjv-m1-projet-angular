@@ -25,7 +25,7 @@ let Projet = new Schema({
     codeP: {
         type: String // Identifiant du projet
     },
-    enseigant: {
+    enseignant: {
         type: String
     }
 });

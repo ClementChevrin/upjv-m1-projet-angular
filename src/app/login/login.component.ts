@@ -37,31 +37,34 @@ export class LoginComponent {
           sessionStorage.setItem('role', resultData.user.role);
           sessionStorage.setItem('nom', resultData.user.nom);
           sessionStorage.setItem('prenom', resultData.user.prenom);
-          // Rediriger l'utilisateur vers la page d'accueil
-          if (true) {
-            this.router.navigateByUrl('/home-student');
-          }
-          else {
-            this.router.navigateByUrl('/home-teacher');
-          }
-        }
-      } else {
-        // Si les informations de connexion sont valides, indiquez un erreur en fonction du type d'erreur
-        let error_p = document.getElementById("error-message");
-        if (error_p) {
-          if (data.email == undefined || data.email == "") {
-            error_p.innerHTML = "Veuillez renseigner une adresse mail";
-          }
-          else if (data.mdp == undefined || data.mdp == "") {
-            error_p.innerHTML = "Veuillez renseigner un mot de passe";
-          }
-          else {
-            error_p.innerHTML = "Votre mot de passe est incorrect ou compte inexistant";
+
+          let role = sessionStorage.getItem("role");
+
+          switch (role) {
+            case 'Etudiant': this.router.navigateByUrl('/home-student'); break;
+            case 'Enseignant': this.router.navigateByUrl('/home-teacher'); break;
+            case 'admin': this.router.navigateByUrl('/users'); break;
+            default: this.router.navigateByUrl('/home-student')
           }
         }
-        console.error("Une erreur de connexion s'est produite");
-      }
-    });
+
+        } else {
+          // Si les informations de connexion sont valides, indiquez un erreur en fonction du type d'erreur
+          let error_p = document.getElementById("error-message");
+          if (error_p) {
+            if (data.email == undefined || data.email == "") {
+              error_p.innerHTML = "Veuillez renseigner une adresse mail";
+            }
+            else if (data.mdp == undefined || data.mdp == "") {
+              error_p.innerHTML = "Veuillez renseigner un mot de passe";
+            }
+            else {
+              error_p.innerHTML = "Votre mot de passe est incorrect ou compte inexistant";
+            }
+          }
+          console.error("Une erreur de connexion s'est produite");
+        }
+      });
   }
 }
 

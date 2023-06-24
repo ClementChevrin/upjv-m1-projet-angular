@@ -44,7 +44,7 @@ export class ProjetComponent {
   }
 
 
-  getAllCom() {
+  createProjet() {
 
     var comp = document.getElementsByClassName("comps");
 
@@ -67,7 +67,6 @@ export class ProjetComponent {
 
     this.http.post("http://localhost:4000/projet/create", data).subscribe((result: any) => {
       if (result.status){
-        alert("Projet Créé");
       }
       else {
         alert(result.message);
@@ -90,20 +89,11 @@ export class ProjetComponent {
         this.http.post("http://localhost:4000/projet/create/competence", data).subscribe((result: any) => {
         })
 
-    })},3000);
+    })},10000);
     
 
-    this.ngOnInit();
   }
 
-  
-
-  createProjet() {
-
-    let Data =
-      {}
-
-  }
 
 }
 

@@ -27,7 +27,8 @@ export class CompetenceComponent {
 
     this.http.post("http://localhost:4000/competence/create", data).subscribe((result: any) => {
       if (result.status) {
-        alert("Competence créé")
+        alert("Competence créé");
+        location.reload();
       }else{
         alert(result.message);
         console.log(result);

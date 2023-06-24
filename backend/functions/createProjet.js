@@ -25,10 +25,7 @@ export function createProjet(projetDetails) {
             var new_projet = new Projet();
             new_projet.nom = projetDetails.nom;
             new_projet.description = projetDetails.description;
-
-            if(projetDetails.enseignant != null && projetDetails.enseignant != undefined){
-            new_projet.enseignant = projetDetails.enseignant
-            }
+            new_projet.enseignant = projetDetails.enseignant;
 
             new_projet.codeP = "PROJ"+numberOfProjet;
             new_projet.competences = [];
