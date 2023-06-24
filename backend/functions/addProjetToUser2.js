@@ -5,12 +5,13 @@ export function addProjetToUser2(data) {
 
     return new Promise(async (resolve, reject) => {
 
-
+        //Recupération de l'etudiant
         var user = await User.findOne({email : data.email});
 
         try {
             var projet = await Projet.findOne({codeP : data.codeP})
             user.projetsArray.push(projet);
+            user.projets.push(projet.codeP);
             user.save();
             resolve({status: true, message : "Projet Ajouté"});
         } catch (err) {

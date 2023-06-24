@@ -20,10 +20,10 @@ const routes: Routes = [
     component: LoginComponent, // Composant à afficher lorsque le chemin est vide (Page de connexion)
     canActivate: [AuthLoginGuard]
   },
-  {
+ /* {
     path: 'home', // Chemin "/home"
     component: HomeComponent // Composant à afficher lorsque le chemin est "/home" (rien)
-  },
+  },*/
   {
     path: 'home-student', // Chemin "/home-student"
     component: HomeStudentComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)

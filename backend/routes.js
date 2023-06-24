@@ -20,45 +20,34 @@ import { addCompToProjetFct } from './functions/addCompToProjet.js';
 import { getNumberOfProjects } from './functions/getNumberOfProjects.js';
 import { addProjetToUserFct2 } from './functions/addProjetToUser2.js';
 import { getAllMyProjets } from './functions/getAllMyProjets.js';
+import { getProjetsToAdd } from './functions/getProjetsToAdd.js';
+import { userUpdateComp, userUpdateCompFct } from './functions/UserUpdateComp.js';
 
 
 const myRouter = express.Router();
 
-// Utilisateurs
+// Users - Administration
 myRouter.route('/users').get(getAllUsers);
-// Users - Projects
-myRouter.route('/user/projets').get(getAllMyProject);
-myRouter.route('/user/projet/add').post(addProjetToUserFct2);
-// Users - Competences
 myRouter.route('/user/create').post(createUserFct);
 myRouter.route('/user/delete').post(deleteUserFct);
 myRouter.route('/user/update').post(updateUserFct);
 myRouter.route('/user/login').post(loginUserFct);
-myRouter.route('/user/mesProjet').get(getAllMyProjets);
+
+// Etudiants - Projects
+myRouter.route('/user/projet/add').post(addProjetToUserFct2); //Ajouter un projet
+myRouter.route('/user/mesProjet').get(getAllMyProjets); //Projets de l'etudiant
+myRouter.route('/user/projetsRestants').get(getProjetsToAdd); //Projets restants
+myRouter.route('/user/updateCompetences').post(userUpdateCompFct); // Maj des compétences
 
 
-//myRouter.route('/user/projects').get(getAllMyProject);
+// Enseignant - Competences
+myRouter.route('/competence/create').post(createCompetenceFct); //Creation d'une competence
+myRouter.route('/competences').get(getAllCpt); //Visualisation des competences
 
-
-
-// Compétences
-myRouter.route('/competence/create').post(createCompetenceFct);
-myRouter.route('/competences').get(getAllCpt);
-
-// Projets
+// Enseignant - Projet
 myRouter.route('/projet/create').post(createProjetFct);
 myRouter.route('/projet/create/competence').post(addCompToProjetFct);
-myRouter.route('/projet/numberOfProjet').get(getNumberOfProjects);
+myRouter.route('/projet/numberOfProjet').get(getNumberOfProjects);  //Permet de définir un code projet
 
-/*
-myRouter.route('/notes').get(async (req,res) =>{
-    try{
-        const notes = await Note.find();
-        res.json(notes);
-    }catch(err)
-    {
-        console.log(err);
-    }
-}); */
 
 export const router = myRouter;
