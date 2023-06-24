@@ -1,11 +1,11 @@
-<div class="card" ng-init=getCompetences()>
-      <h1>Creation Projet</h1>
+<div class="container" ng-init=getCompetences()>
+      <h1>Création de projet</h1>
 
       <form>
             <div class="form-group">
                   <label>Nom du projet</label>
                   <input type="text" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" class="form-control"
-                        id="nom" placeholder="Nom du projt">
+                        id="nom" placeholder="Nom du projet">
             </div>
 
             <div class="form-group">
@@ -38,7 +38,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary mt-4" (click)="createProjet()">Save</button>
+            <button type="submit" class="btn btn-primary mt-4" (click)="createProjet()">Créer</button>
 
 
       </form>

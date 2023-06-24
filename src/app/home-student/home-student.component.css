@@ -49,7 +49,7 @@ header.projet-list .action {
       width: 100%;
 }
 
-header.projet-list .action button {
+header.projet-list .action a {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -60,14 +60,15 @@ header.projet-list .action button {
       border: none;
       padding: 5px 14px 5px 10px;
       transition: all 0.5s ease;
+      text-decoration: none;
 }
 
-header.projet-list .action button:hover {
+header.projet-list .action a:hover {
       background-color: rgb(65, 65, 65);
       transition: all 0.5s ease;
 }
 
-header.projet-list .action button span {}
+header.projet-list .action a span {}
 
 header.projet-list .action .search-bloc {
       border: solid 1px black;

@@ -9,11 +9,11 @@
                               </span>
                               <input type="text" name="search" id="search" placeholder="Recherche">
                         </div>
-                        <button>
+                        <a href="/home-student/newproj">
                               <span class="material-symbols-rounded">
                                     add
                               </span>Ajouter un projet
-                        </button>
+                        </a>
                   </div>
             </header>
             <div id="list-proj">
@@ -38,13 +38,15 @@
                                                 <tr *ngFor="let competence of projet.competences">
                                                       <td>{{competence.nom}}</td>
                                                       <td>{{competence.description}}</td>
-                                                      <td *ngIf="competence.etat === 0 || competence.etat === 3" class="nac">Non
+                                                      <td *ngIf="competence.etat === 0 || competence.etat === 3"
+                                                            class="nac">Non
                                                             acquis
                                                             <div class="progress-bar">
                                                                   <div class="progress"></div>
                                                             </div>
                                                       </td>
-                                                      <td *ngIf="competence.etat === 1 || competence.etat === 4" class="eac">En
+                                                      <td *ngIf="competence.etat === 1 || competence.etat === 4"
+                                                            class="eac">En
                                                             cours
                                                             d'acquisition
                                                             <div class="progress-bar">
