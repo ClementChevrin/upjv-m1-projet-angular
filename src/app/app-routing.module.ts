@@ -12,6 +12,7 @@ import { ProjetComponent } from './projet/projet.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
   },
   {
     path: 'register', // Chemin "/register"
-    component: RegisterComponent // Composant à afficher lorsque le chemin est "/register" (Page de création de compte)
+    component: RegisterComponent, // Composant à afficher lorsque le chemin est "/register" (Page de création de compte)
+    canActivate : [AdminGuard]
   },
   {
     path: 'competence', // Chemin "/competence"
@@ -57,7 +59,8 @@ const routes: Routes = [
   },
   {
     path: 'users', // Chemin "/users"
-    component: UserComponent // Composant à afficher lorsque le chemin est "/users" (Page de création d'utilisateur)
+    component: UserComponent, // Composant à afficher lorsque le chemin est "/users" (Page de création d'utilisateur)
+    canActivate : [AdminGuard]
   }
 ];
 

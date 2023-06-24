@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 export class HomeStudentComponent {
 
   myProjects: any[] = [];
+  myProjets : any[] = [];
   myEmail: any = sessionStorage.getItem('email');
+  myPrenom : any = sessionStorage.getItem('prenom');
 
   constructor(private http: HttpClient, private router: Router) {
     this.getMyProjects();
@@ -97,11 +99,21 @@ export class HomeStudentComponent {
 
     let param = { "email": this.myEmail };
     const myUrl = "http://localhost:4000/user/projets";
+    const myUrl2 = "http://localhost:4000/user/mesProjet";
 
-    this.http.get(myUrl, { params: param })
+    /*this.http.get(myUrl, { params: param })
       .subscribe((result: any) => {
         this.myProjects = result[0].myProjects;
         console.log(this.myProjects);
-      });
+      }); */
+
+      this.http.get(myUrl2, { params: param })
+      .subscribe((result: any) => {
+        //this.myProjets = result;
+        this.myProjets = result[0].projetsArray;
+        console.log(result[0].projetsArray);
+      })
+
+
   }
 }
