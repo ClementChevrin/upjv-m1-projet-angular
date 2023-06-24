@@ -18,6 +18,7 @@ export function createUser(userDetails){
         user.email = userDetails.email;
         user.mdp = myEncryptor.encrypt(userDetails.mdp);
         user.role = userDetails.role;
+        user.projetsArray = [];
         }else{
             ok=false;
             console.log("L'utilisateur existe déjà");

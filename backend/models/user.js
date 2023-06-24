@@ -23,7 +23,23 @@ let User = new Schema({
     },
     projets : {
         type : Array
-    }
+    },
+    projetsArray : [
+        {
+        _id : String,
+        nom : String,
+        description : String,
+        competences : [{
+                _id : String,
+                nom : String,
+                description : String,
+                codeC : String,
+                etat : Number
+        }],
+        codeP : String,
+        enseignant : String
+        }
+    ] 
 });
 
 export default mongoose.model('User',User);

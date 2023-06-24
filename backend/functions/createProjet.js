@@ -26,8 +26,8 @@ export function createProjet(projetDetails) {
             new_projet.nom = projetDetails.nom;
             new_projet.description = projetDetails.description;
 
-            if(projetDetails.enseigant != null && projetDetails != undefined){
-            new_projet.enseigant = projetDetails.enseigant
+            if(projetDetails.enseignant != null && projetDetails.enseignant != undefined){
+            new_projet.enseignant = projetDetails.enseignant
             }
 
             new_projet.codeP = "PROJ"+numberOfProjet;

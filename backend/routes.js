@@ -17,6 +17,8 @@ import user from './models/user.js';
 import { getAllMyProject } from './functions/getMyProjects.js';
 import { addProjetToUserFct } from './functions/addProjetToUser.js';
 import { addCompToProjetFct } from './functions/addCompToProjet.js';
+import { getNumberOfProjects } from './functions/getNumberOfProjects.js';
+import { addProjetToUserFct2 } from './functions/addProjetToUser2.js';
 
 
 const myRouter = express.Router();
@@ -25,12 +27,13 @@ const myRouter = express.Router();
 myRouter.route('/users').get(getAllUsers);
 // Users - Projects
 myRouter.route('/user/projets').get(getAllMyProject);
-myRouter.route('/user/projet/add').post(addProjetToUserFct);
+myRouter.route('/user/projet/add').post(addProjetToUserFct2);
 // Users - Competences
 myRouter.route('/user/create').post(createUserFct);
 myRouter.route('/user/delete').post(deleteUserFct);
 myRouter.route('/user/update').post(updateUserFct);
 myRouter.route('/user/login').post(loginUserFct);
+
 
 
 //myRouter.route('/user/projects').get(getAllMyProject);
@@ -44,6 +47,7 @@ myRouter.route('/competences').get(getAllCpt);
 // Projets
 myRouter.route('/projet/create').post(createProjetFct);
 myRouter.route('/projet/create/competence').post(addCompToProjetFct);
+myRouter.route('/projet/numberOfProjet').get(getNumberOfProjects);
 
 /*
 myRouter.route('/notes').get(async (req,res) =>{

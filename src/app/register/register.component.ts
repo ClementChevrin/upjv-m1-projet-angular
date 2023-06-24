@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent {
   role ? : string;
 
 // Appel au route
-constructor(private http : HttpClient){}
+constructor(private http : HttpClient, private router : Router){}
 ngOnInit():void{}
 
 
@@ -33,8 +34,11 @@ createUser(){
 
   this.http.post("http://localhost:4000/user/create",data).subscribe((result : any) =>
   {
-    if(result.status)
-    alert("Utilisateur enregistré")
+    if(result.status){
+    alert("Utilisateur enregistré");
+    this.router.navigateByUrl("/register");
+    }
+    
     else{
       alert(result.message);
     }

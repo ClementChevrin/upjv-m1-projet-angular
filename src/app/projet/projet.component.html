@@ -30,16 +30,16 @@
                     <tbody>
                         <tr *ngFor="let c of competences">
                             <th scope="row">
-                                <input type ="checkbox"/>
+                                <input value = {{c.codeC}} class="comps" type ="checkbox"/>
                             </th>
-                            <td>{{c.nom}}</td><td>{{c.codeC}}</td>
+                            <td>{{c.nom}}</td><td id="comp" >{{c.codeC}}</td>
                         </tr>
                     </tbody>
                 </table>
                 </div>
 
 
-            <button type="submit" class="btn btn-primary mt-4" (click)="createProjet()">Save</button>
+            <button type="button" class="btn btn-primary mt-4" (click)="getAllCom()">Save</button>
 
 
         </form>
