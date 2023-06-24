@@ -22,6 +22,7 @@ import { addProjetToUserFct2 } from './functions/addProjetToUser2.js';
 import { getAllMyProjets } from './functions/getAllMyProjets.js';
 import { getProjetsToAdd } from './functions/getProjetsToAdd.js';
 import { userUpdateComp, userUpdateCompFct } from './functions/UserUpdateComp.js';
+import { getEnseignantProjet } from './functions/getEnseignantProjets.js';
 
 
 const myRouter = express.Router();
@@ -43,6 +44,7 @@ myRouter.route('/user/updateCompetences').post(userUpdateCompFct); // Maj des co
 // Enseignant - Competences
 myRouter.route('/competence/create').post(createCompetenceFct); //Creation d'une competence
 myRouter.route('/competences').get(getAllCpt); //Visualisation des competences
+myRouter.route('/enseignant/projets').get(getEnseignantProjet);
 
 // Enseignant - Projet
 myRouter.route('/projet/create').post(createProjetFct);
