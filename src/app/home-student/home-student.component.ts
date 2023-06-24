@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -105,14 +106,25 @@ export class HomeStudentComponent {
     var indexProjet = value.substring(0, 1);
     var indexComp = value.substring(1, 2);
 
-    console.log(this.etat + "  projet : " + indexProjet + " competence :" + indexComp);
+    //console.log(this.etat + "  projet : " + indexProjet + " competence :" + indexComp);
+    let data = {
+      "iP" : indexProjet,
+      "iC" : indexComp,
+      "email" : this.myEmail,
+      "etat" : this.etat
+    }
 
+    
+    let currentUrl = this.router.url;
 
+    this.http.post("http://localhost:4000/user/updateCompetences",data).subscribe((result :any) =>{
 
+      location.reload();
+    
+    })
 
-
-  }
-
+    }
+    
 
   getMyProjects() {
 
