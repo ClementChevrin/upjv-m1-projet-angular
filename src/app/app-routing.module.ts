@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { AdminGuard } from './admin.guard';
+import { UserGuard } from './user.guard';
+import { TeacherGuard } from './teacher.guard';
 
 const routes: Routes = [
   {
@@ -26,11 +28,13 @@ const routes: Routes = [
   },*/
   {
     path: 'home-student', // Chemin "/home-student"
-    component: HomeStudentComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    component: HomeStudentComponent, // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    canActivate : [UserGuard]
   },
   {
     path: 'home-student/newproj', // Chemin "/home-student"
-    component: HomeStudentNewprojComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    component: HomeStudentNewprojComponent,// Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    canActivate : [UserGuard]
   },
   {
     path: 'home-student/noteproj/:id', // Chemin "/home-student"
@@ -38,25 +42,27 @@ const routes: Routes = [
   },
   {
     path: 'home-teacher', // Chemin "/home-student"
-    component: HomeTeacherComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    component: HomeTeacherComponent, // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    canActivate : [TeacherGuard]
   },
   {
     path: 'home-teacher/newproj', // Chemin "/home-student"
-    component: HomeTeacherNewprojComponent // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    component: HomeTeacherNewprojComponent, // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
+    canActivate : [TeacherGuard]
   },
   {
     path: 'register', // Chemin "/register"
     component: RegisterComponent, // Composant à afficher lorsque le chemin est "/register" (Page de création de compte)
     canActivate : [AdminGuard]
   },
-  {
+ /* {
     path: 'competence', // Chemin "/competence"
     component: CompetenceComponent // Composant à afficher lorsque le chemin est "/competence" (Page de création de compétence)
   },
   {
     path: 'projet', // Chemin "/projet"
     component: ProjetComponent // Composant à afficher lorsque le chemin est "/projet" (Page de création de projet)
-  },
+  },*/
   {
     path: 'users', // Chemin "/users"
     component: UserComponent, // Composant à afficher lorsque le chemin est "/users" (Page de création d'utilisateur)

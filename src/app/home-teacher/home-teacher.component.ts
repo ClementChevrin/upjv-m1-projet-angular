@@ -38,6 +38,7 @@ export class HomeTeacherComponent {
 
         console.log(this.projets2);
         console.log(this.etudiants);
+        
 
 
         this.projets = result;

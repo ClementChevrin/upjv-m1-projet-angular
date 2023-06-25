@@ -16,7 +16,7 @@ try {
           "_id" : 0,
           projetsArray:{
             $elemMatch: {
-              "enseignant" : "frederic.furst@gmail.com",
+              "enseignant" : req.param("email"),
             },
           },
         }
