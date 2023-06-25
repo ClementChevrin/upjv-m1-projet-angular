@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { IntegerType } from 'mongodb';
+import { ProjetComponent } from '../projet/projet.component';
+
 
 @Component({
   selector: 'app-home-teacher-newproj',
@@ -18,7 +21,7 @@ export class HomeTeacherNewprojComponent {
   competences: any[] = [];
 
   // Appel au route
-  constructor(private http: HttpClient) { this.getAllCpt() }
+  constructor(private http: HttpClient,private router : Router) { this.getAllCpt() }
   ngOnInit() {
   }
 
@@ -29,16 +32,5 @@ export class HomeTeacherNewprojComponent {
     })
   }
 
-  createProjet() {
 
-    let Data =
-    {
-      "nom": this.nom,
-      "description": this.description,
-      "codeComp": ["", ""],
-      "codePR": this.codePR,
-      "enseignant": this.enseigant
-    }
-
-  }
 }

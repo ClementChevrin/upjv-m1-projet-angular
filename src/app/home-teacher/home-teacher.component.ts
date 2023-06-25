@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,12 +8,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-teacher.component.css']
 })
 export class HomeTeacherComponent {
-  constructor(private router: Router) {
+
+  myEmail: any = sessionStorage.getItem('email');
+  projets: any[] = [];
+  projets2: any[] = [];
+  etudiants: string[] = [];
+
+  constructor(private router: Router, private http: HttpClient) {
+    this.getProjects();
   }
 
   createProjet() {
     this.router.navigateByUrl('home-teacher/newproj');
   }
+
+  getProjects() {
+
+    let param = { "email": this.myEmail };
+    const myUrl = "http://localhost:4000/enseignant/projets";
+
+    this.http.get(myUrl, { params: param })
+      .subscribe((result: any) => {
+        console.log(result);
+
+        result.forEach((p: any) => {
+          this.projets2.push(p.projetsArray);
+          this.etudiants.push(p.email);
+        })
+
+        console.log(this.projets2);
+        console.log(this.etudiants);
+
+
+
+        this.projets = result;
+      })
+  }
+
   ngOnInit(): void {
     // Récupérer l'élément de recherche
     const search: HTMLInputElement = document.getElementById('search') as HTMLInputElement;

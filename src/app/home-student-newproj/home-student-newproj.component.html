@@ -12,10 +12,10 @@
                   </div>
             </header>
             <div id="list-proj">
-                  <div *ngFor="let projet of projets" class="card-projet">
-                        <input type="radio" name="accordion" id="cb{{projet}}" />
+                  <div *ngFor="let projet of projets;index as i;" class="card-projet">
+                        <input type="radio" name="accordion" id="cb{{i}}" />
                         <section class="box">
-                              <label class="box-title" for="cb{{projet}}">{{projet.nom}}</label>
+                              <label class="box-title" for="cb{{i}}">{{projet.nom}}</label>
                               <label class="box-close" for="acc-close"></label>
                               <div class="box-content">
                                     <h2>Description :</h2>
@@ -30,16 +30,12 @@
                                           </thead>
                                           <tbody>
                                                 <tr *ngFor="let competence of projet.competences">
-                                                      <td>Compétence n°{{competence}}</td>
-                                                      <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                                            Distinctio libero beatae dignissimos quasi necessitatibus
-                                                            minima tempora laudantium cupiditate, eaque ut inventore
-                                                            neque? Perferendis doloribus odit quam sunt. Commodi,
-                                                            repudiandae hic.</td>
+                                                      <td>Compétence n°{{competence.nom}}</td>
+                                                      <td>{{competence.description}}</td>
                                                 </tr>
                                           </tbody>
                                     </table>
-                                    <button>Participer</button>
+                                    <button type="button" id={{projet.codeP}} (click)="addProjet($event)">Participer</button>
                               </div>
                         </section>
                   </div>

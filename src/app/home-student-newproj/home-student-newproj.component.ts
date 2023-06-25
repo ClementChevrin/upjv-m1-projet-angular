@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-student-newproj',
@@ -9,13 +10,13 @@ import { Component } from '@angular/core';
 export class HomeStudentNewprojComponent {
 
   projets: any[] = [];
-  myEmail : any = sessionStorage.getItem('email');
+  myEmail: any = sessionStorage.getItem('email');
 
-  constructor(private http : HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
     this.projetToAdd();
   }
 
-  projetToAdd(){
+  projetToAdd() {
 
     let param = { "email": this.myEmail };
     const myUrl = "http://localhost:4000/user/projetsRestants";
@@ -26,8 +27,27 @@ export class HomeStudentNewprojComponent {
 
         this.projets = result;
       })
+  }
 
-    this.http.get("http://localhost:4000/user/projetsRestants")
+  addProjet(event: { target: any; srcElement: any; currentTarget: any; }) {
+
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    let data = {
+      "codeP": value,
+      "email": this.myEmail
+    }
+
+    this.http.post("http://localhost:4000/user/projet/add", data).subscribe((result : any) => {
+
+      if(result.status){
+        this.router.navigateByUrl('/home-student')
+      }else{
+        alert("Erreur lors d'ajout du projet");
+      }
+    })
   }
 
 

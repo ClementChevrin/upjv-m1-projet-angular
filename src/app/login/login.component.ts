@@ -30,21 +30,23 @@ export class LoginComponent {
     this.http.post("http://localhost:4000/user/login", data).subscribe((resultData: any) => {
 
       if (resultData.status) {
-
         // Si les informations de connexion sont valides, enregistrer les détails de l'utilisateur dans la session
         if (sessionStorage.getItem('email') == null) {
           sessionStorage.setItem('email', resultData.user.email);
           sessionStorage.setItem('role', resultData.user.role);
           sessionStorage.setItem('nom', resultData.user.nom);
           sessionStorage.setItem('prenom', resultData.user.prenom);
-          // Rediriger l'utilisateur vers la page d'accueil
-          if (sessionStorage.getItem('role') == "Enseignant") {
-            this.router.navigateByUrl('/home-teacher');
-          }
-          else {
-            this.router.navigateByUrl('/home-student');
+
+          let role = sessionStorage.getItem("role");
+
+          switch (role) {
+            case 'Etudiant': this.router.navigateByUrl('/home-student'); break;
+            case 'Enseignant': this.router.navigateByUrl('/home-teacher'); break;
+            case 'admin': this.router.navigateByUrl('/users'); break;
+            default: this.router.navigateByUrl('/home-student');
           }
         }
+
       } else {
         // Si les informations de connexion sont valides, indiquez un erreur en fonction du type d'erreur
         let error_p = document.getElementById("error-message");

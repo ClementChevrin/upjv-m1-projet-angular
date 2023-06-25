@@ -5,9 +5,10 @@ export var getProjetsToAdd = async (req, res) => {
 
 try {
 
-    var mesProjets = await User.find({'email' : 'alice.ngae@gmail.com'},{'projets': 1,'_id' : 0})
-    var projets = await Projet.find( {'codeP' : { $nin : mesProjets[0].projets }})
-    console.log(projets);
+    var mesProjets = await User.find({'email' : req.param('email')},{'projets': 1,'_id' : 0})
+    console.log(mesProjets);
+   var projets = await Projet.find( {'codeP' : { $nin : mesProjets[0].projets }})
+   // console.log(projets);
     res.json(projets);
 }
 
