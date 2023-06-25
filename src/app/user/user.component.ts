@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -25,7 +26,7 @@ export class UserComponent {
 
 
   // Appel au route
-  constructor(private http: HttpClient) { this.getAllUsers() }
+  constructor(private http: HttpClient,private router : Router) { this.getAllUsers() }
   ngOnInit() {
   }
 
@@ -35,6 +36,10 @@ export class UserComponent {
         console.log(result);
         this.listUsers = result;
       });
+  }
+
+  goToRegister(){
+    this.router.navigateByUrl('/register');
   }
 
   updateUser1(event: { target: any; srcElement: any; currentTarget: any; }) {

@@ -41,8 +41,12 @@ export class AppComponent {
     this.router.navigateByUrl('/');
   }
 
+  goToUsers(){
+    this.router.navigateByUrl('/users')
+  }
+
   goToProjets(){
-    this.router.navigateByUrl('home-teacher/projets');
+    this.router.navigateByUrl('/home-teacher/projets');
   }
 
   goToEtudiants(){
