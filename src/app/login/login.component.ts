@@ -38,11 +38,11 @@ export class LoginComponent {
           sessionStorage.setItem('nom', resultData.user.nom);
           sessionStorage.setItem('prenom', resultData.user.prenom);
           // Rediriger l'utilisateur vers la page d'accueil
-          if (true) {
-            this.router.navigateByUrl('/home-student');
+          if (sessionStorage.getItem('role') == "Enseignant") {
+            this.router.navigateByUrl('/home-teacher');
           }
           else {
-            this.router.navigateByUrl('/home-teacher');
+            this.router.navigateByUrl('/home-student');
           }
         }
       } else {
