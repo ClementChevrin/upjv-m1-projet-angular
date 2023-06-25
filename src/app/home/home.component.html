@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <div class="page">
         <header class="projet-list">
             <label for="acc-close" class="box-title">Liste des projets</label>
@@ -34,4 +34,37 @@
             </section>
         </div>
     </div>
-</div>
+</div> -->
+<div class="container mt-4" id="updateDiv" style="width: 400px; height: 600px;">
+    <form style="height: 100%;width: 100%;display: flex; justify-content: space-between;flex-direction: column; ">
+      <h3>Bienvenue : {{prenom}} </h3>
+      <p>Bienvenu sur JS projet {{prenom}} ! Cet espace te permets de modifier tes informations personnelles!!</p>
+      <div class="form-group">
+        <div class="input-log">
+          <input type="text" [(ngModel)]="newPrenom" [ngModelOptions]="{standalone: true}" class="form-control" id="prenom"
+            placeholder="Prenom" required>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <div class="input-log">
+          <input type="text" [(ngModel)]="newNom" [ngModelOptions]="{standalone: true}" class="form-control" id="nom"
+            placeholder="Nom" required>
+        </div>
+      </div>
+  
+    
+  
+      <div class="form-group">
+        <div class="input-log">
+          <input type="password" [(ngModel)]="newMdp" [ngModelOptions]="{standalone: true}" class="form-control" id="mdp"
+            placeholder="Mot de passe" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" (click)="updateUser2()">MAJ</button>
+  
+    </form>
+  </div>
+
+

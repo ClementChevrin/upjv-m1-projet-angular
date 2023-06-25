@@ -13,7 +13,7 @@ export function updateUser(userDetails) {
         userDB.prenom = userDetails.prenom;
         userDB.nom = userDetails.nom;
 
-        if (userDetails.new_email != null || userDetails.new_mail != null) {
+        if (userDetails.new_email != null || userDetails.new_mail != undefined) {
             userDB.email = userDetails.new_email;
         }
 

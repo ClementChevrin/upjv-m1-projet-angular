@@ -1,0 +1,285 @@
+.page {
+    height: calc(100vh - 68px);
+    overflow-y: scroll;
+    padding: 0 200px;
+}
+
+
+.page::-webkit-scrollbar {
+    background-color: transparent;
+    width: 3px;
+    margin: 0 5px;
+}
+
+.page::-webkit-scrollbar-track {
+    background-color: transparent;
+    padding: 2px;
+}
+
+.page::-webkit-scrollbar-thumb {
+    background-color: var(--clickable);
+    border-radius: 16px;
+}
+
+.page::-webkit-scrollbar-button {
+    display: none;
+    position: absolute;
+}
+
+header {
+    font-family: 'Poppins', sans-serif;
+}
+
+header.projet-list {
+    margin-bottom: 10px;
+}
+
+header.projet-list label {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+header.projet-list .action {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+header.projet-list .action button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: rgb(44, 44, 44);
+    border-radius: 4px;
+    border: none;
+    padding: 5px 14px 5px 10px;
+    transition: all 0.5s ease;
+}
+
+header.projet-list .action button:hover {
+    background-color: rgb(65, 65, 65);
+    transition: all 0.5s ease;
+}
+
+/*header.projet-list .action button span {}*/
+
+header.projet-list .action .search-bloc {
+    border: solid 1px black;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+}
+
+header.projet-list .action .search-bloc span {
+    padding-right: 10px;
+}
+
+header.projet-list .action .search-bloc input:hover,
+header.projet-list .action .search-bloc input:focus-visible,
+header.projet-list .action .search-bloc input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.card-projet {
+    margin: auto;
+    width: 100%;
+}
+
+.card-projet input {
+    display: none;
+}
+
+.card-projet .box {
+    position: relative;
+    background: white;
+    height: 64px;
+    transition: all .15s ease-in-out;
+}
+
+.card-projet .box::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+.card-projet .box-content {
+    padding: 30px 40px;
+    font-size: 11pt;
+    color: rgba(0, 0, 0, .54);
+    display: none;
+}
+
+.card-projet .box-close {
+    position: absolute;
+    height: 64px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.card-projet input:checked+.box {
+    height: auto;
+    margin: 16px 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+}
+
+.card-projet input:checked+.box .box-title {
+    border-bottom: 1px solid rgba(0, 0, 0, .18);
+}
+
+.card-projet input:checked+.box .box-content,
+.card-projet input:checked+.box .box-close {
+    display: inline-block;
+}
+
+.card-projet input:checked+.box .box-content a {
+    background-color: #529f41;
+    padding: 5px 10px;
+    color: white;
+    text-align: center;
+    width: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.1s ease;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.card-projet input:checked+.box .box-content a:hover {
+    background-color: #60a351;
+    width: 110px;
+    transition: all 0.1s ease;
+}
+
+.card-projet input:checked+.box .box-content h2 {
+    font-size: 20px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.card-projet input:checked+.box .box-content table {
+    margin: 10px 20px;
+}
+
+/*.card-projet input:checked+.box .box-content table tr {} */
+
+.card-projet input:checked+.box .box-content table tr th {
+    font-size: 18px;
+    border-bottom: solid 1px grey;
+}
+
+.card-projet input:checked+.box .box-content table tr td {
+    padding: 10px 70px 10px 10px;
+}
+
+.card-projet input:checked+.box .box-content table tr td.ac,
+.card-projet input:checked+.box .box-content table tr td.eac,
+.card-projet input:checked+.box .box-content table tr td.nac {
+    white-space: nowrap;
+}
+
+td.nac .progress-bar {
+    height: fit-content;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+td.nac .progress-bar .progress {
+    height: 10px;
+    width: 10%;
+    border-radius: 10px;
+    background-color: rgb(255, 51, 51);
+}
+
+
+td.eac .progress-bar {
+    height: fit-content;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+td.eac .progress-bar .progress {
+    height: 10px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgb(219, 245, 74);
+}
+
+
+td.ac .progress-bar {
+    height: fit-content;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+td.ac .progress-bar .progress {
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(74, 245, 97);
+}
+
+.card-projet section .box-title {
+    padding-left: 44px;
+    width: calc(100% - 64px);
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.card-projet section .box-title:before {
+    position: absolute;
+    display: block;
+    content: '\203a';
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    left: 20px;
+    top: -2px;
+    transition: transform .15s ease-in-out;
+    color: rgba(0, 0, 0, .54);
+}
+
+.card-projet input:checked+section.box .box-title:before {
+    transform: rotate(90deg);
+}
+
+#list-proj {
+    padding-bottom: 100px;
+}

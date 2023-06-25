@@ -1,7 +1,7 @@
 <div>
       <div class="page">
             <header class="projet-list">
-                  <label for="acc-close" class="box-title">Liste des projets de : {{myEmail}}</label>
+                  <label for="acc-close" class="box-title">Liste des étudants de : {{myEmail}}</label>
                   <div class="action">
                         <div class="search-bloc">
                               <span class="material-symbols-rounded">
@@ -17,27 +17,48 @@
                   </div>
             </header>
             <div id="list-proj">
-                  <div *ngFor="let projet of projets2;index as i;" class="card-projet">
+                  <div *ngFor="let projet of projets;index as i" class="card-projet">
                         <input type="radio" name="accordion" id="cb{{i}}" />
                         <section class="box">
-                              <label class="box-title" for="cb{{i}}">{{projet[0].nom}}</label>
+                              <label class="box-title" for="cb{{i}}">{{projet.email}}</label>
                               <label class="box-close" for="acc-close"></label>
                               <div class="box-content">
                                     <h2>Description :</h2>
-                                    <p>Description a modifier</p>
+                                    <p>{{projets2[i].nom}}</p>
                                     <h2>Compétence à acquérir :</h2>
                                     <table>
                                           <thead>
                                                 <tr>
                                                       <th>Nom</th>
                                                       <th>Description</th>
+                                                      <th>Note</th>
                                                       <th>Status</th>
                                                 </tr>
                                           </thead>
                                           <tbody>
-                                                <tr *ngFor="let competence of [0,1,2,3,4]">
-                                                      <td>Nom</td>
-                                                      <td>Prénom</td>
+                                                <tr *ngFor="let comp of competences;index as i2">
+                                                      <td>{{comp[i].nom}}</td>
+                                                      <td>{{comp[i].description}}</td>
+                                                      <td *ngIf="comp[i].etat === 0 || comp[i].etat === 3"
+                                                            class="nac">Non
+                                                            acquis
+                                                            <div class="progress-bar">
+                                                                  <div class="progress"></div>
+                                                            </div>
+                                                      </td>
+                                                      <td *ngIf="comp[i].etat === 1 || comp[i].etat === 4"
+                                                            class="eac">En
+                                                            cours
+                                                            d'acquisition
+                                                            <div class="progress-bar">
+                                                                  <div class="progress"></div>
+                                                            </div>
+                                                      </td>
+                                                      <td *ngIf="comp[i].etat === 2" class="ac">Acquis
+                                                            <div class="progress-bar">
+                                                                  <div class="progress"></div>
+                                                            </div>
+                                                      </td>
                                                       <td>
                                                             <a href="#">Noter l'étudiant</a>
                                                       </td>

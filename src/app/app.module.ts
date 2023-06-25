@@ -16,7 +16,8 @@ import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
 import { HomeStudentNewprojComponent } from './home-student-newproj/home-student-newproj.component';
 import { HomeTeacherNewprojComponent } from './home-teacher-newproj/home-teacher-newproj.component';
 import { HomeTeacherNoteprojComponent } from './home-teacher-noteproj/home-teacher-noteproj.component';
-import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component'
+import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component';
+import { HomeTeacherProjetsComponent } from './home-teacher-projets/home-teacher-projets.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-stude
     HomeStudentNewprojComponent,
     HomeTeacherNewprojComponent,
     HomeTeacherNoteprojComponent,
-    HomeStudentNoteprojComponent
+    HomeStudentNoteprojComponent,
+    HomeTeacherProjetsComponent
   ],
   imports: [
     BrowserModule,

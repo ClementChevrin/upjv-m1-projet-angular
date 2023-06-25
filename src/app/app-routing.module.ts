@@ -6,6 +6,7 @@ import { HomeStudentNewprojComponent } from './home-student-newproj/home-student
 import { HomeStudentNoteprojComponent } from './home-student-noteproj/home-student-noteproj.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
 import { HomeTeacherNewprojComponent } from './home-teacher-newproj/home-teacher-newproj.component';
+import { HomeTeacherProjetsComponent } from './home-teacher-projets/home-teacher-projets.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { ProjetComponent } from './projet/projet.component';
@@ -15,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { AdminGuard } from './admin.guard';
 import { UserGuard } from './user.guard';
 import { TeacherGuard } from './teacher.guard';
+import { HomeTeacherNoteprojComponent } from './home-teacher-noteproj/home-teacher-noteproj.component';
 
 const routes: Routes = [
   {
@@ -22,10 +24,10 @@ const routes: Routes = [
     component: LoginComponent, // Composant à afficher lorsque le chemin est vide (Page de connexion)
     canActivate: [AuthLoginGuard]
   },
- /* {
+  {
     path: 'home', // Chemin "/home"
     component: HomeComponent // Composant à afficher lorsque le chemin est "/home" (rien)
-  },*/
+  },
   {
     path: 'home-student', // Chemin "/home-student"
     component: HomeStudentComponent, // Composant à afficher lorsque le chemin est "/home" (Liste des projet de l'étudiant)
@@ -67,6 +69,11 @@ const routes: Routes = [
     path: 'users', // Chemin "/users"
     component: UserComponent, // Composant à afficher lorsque le chemin est "/users" (Page de création d'utilisateur)
     canActivate : [AdminGuard]
+  },
+  {
+    path: 'home-teacher/projets', //
+    component: HomeTeacherProjetsComponent, // 
+    canActivate : [TeacherGuard]
   }
 ];
 

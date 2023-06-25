@@ -9,10 +9,19 @@ import { Router } from '@angular/router';
 })
 export class HomeTeacherComponent {
 
+<<<<<<< Updated upstream
   myEmail: any = sessionStorage.getItem('email');
   projets: any[] = [];
   projets2: any[] = [];
   etudiants: string[] = [];
+=======
+  myEmail : any = sessionStorage.getItem('email');
+  projets : any[] = [];
+  projets2 : any[] = [];
+  etudiants : string [] = [];
+  competences : any[] = [];
+  competences2 : any[] = [];
+>>>>>>> Stashed changes
 
   constructor(private router: Router, private http: HttpClient) {
     this.getProjects();
@@ -33,15 +42,26 @@ export class HomeTeacherComponent {
 
         result.forEach((p: any) => {
           this.projets2.push(p.projetsArray);
+          p.projetsArray.forEach((p2 : any)=>{
+            this.competences.push(p2.competences);
+          })
           this.etudiants.push(p.email);
         })
 
         console.log(this.projets2);
         console.log(this.etudiants);
+<<<<<<< Updated upstream
 
 
 
+=======
+        console.log(this.competences);
+
+      
+        
+>>>>>>> Stashed changes
         this.projets = result;
+
       })
   }
 

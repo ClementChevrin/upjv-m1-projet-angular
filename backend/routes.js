@@ -23,6 +23,7 @@ import { getAllMyProjets } from './functions/getAllMyProjets.js';
 import { getProjetsToAdd } from './functions/getProjetsToAdd.js';
 import { userUpdateComp, userUpdateCompFct } from './functions/UserUpdateComp.js';
 import { getEnseignantProjet } from './functions/getEnseignantProjets.js';
+import { enseignantProjet } from './functions/enseignantProjet.js';
 
 
 const myRouter = express.Router();
@@ -50,6 +51,7 @@ myRouter.route('/enseignant/projets').get(getEnseignantProjet);
 myRouter.route('/projet/create').post(createProjetFct);
 myRouter.route('/projet/create/competence').post(addCompToProjetFct);
 myRouter.route('/projet/numberOfProjet').get(getNumberOfProjects);  //Permet de définir un code projet
+myRouter.route('/projet/mesProjets').get(enseignantProjet);
 
 
 export const router = myRouter;

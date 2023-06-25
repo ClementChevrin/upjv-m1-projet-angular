@@ -1,3 +1,4 @@
+
 .page {
       height: calc(100vh - 68px);
       overflow-y: scroll;
@@ -119,7 +120,7 @@
       margin: 10px 20px;
 }
 
-.card-projet input:checked+.box .box-content table tr {}
+/*.card-projet input:checked+.box .box-content table tr {}*/
 
 .card-projet input:checked+.box .box-content table tr th {
       font-size: 18px;

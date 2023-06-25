@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TeacherGuard implements CanActivate {
 
-  constructor(private router : Router,private location : Location){}
+  constructor(private router : Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -18,6 +18,7 @@ export class TeacherGuard implements CanActivate {
     if(role != "Enseignant"){
       if(role == "Etudiant"){
         this.router.navigateByUrl('home-student');
+        
       }else{
         this.router.navigateByUrl('users');
       }

@@ -8,8 +8,18 @@
   <ul>
     <li></li>
     <li *ngIf="isAdmin">Inscription</li>
+    <li *ngIf="role == 'Etudiant'" (click)="goToMonCompte()">Mon compte</li>
+    <li *ngIf="role == 'Etudiant'" (click)="goToMesProjets()">Mes projets</li>
+
+    <li *ngIf="role == 'Enseignant' " (click)="goToProjets()"> Projets</li>
+    <li *ngIf="role == 'Enseignant' "(click)="goToEtudiants()"> Etudiants</li>
+
+    <li *ngIf="role == 'Enseignant' " (click)="goToMonCompte()"> Mon compte</li>
+    <li *ngIf="role == 'admin' " (click)="goToLogin()"> Utilisateur</li>
+
     <li *ngIf="!userLogged" (click)="goToLogin()">Connexion</li>
     <li *ngIf="userLogged" (click)="deconnexion()">Deconnexion</li>
+
   </ul>
 </nav>
 <router-outlet (activate)="userIsLogged()"></router-outlet>

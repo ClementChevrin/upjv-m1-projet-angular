@@ -1,0 +1,48 @@
+<div>
+    <div class="page">
+          <header class="projet-list">
+                <label for="acc-close" class="box-title">Mes projets</label>
+                <div class="action">
+                      <div class="search-bloc">
+                            <span class="material-symbols-rounded">
+                                  search
+                            </span>
+                            <input type="text" name="search" id="search" placeholder="Recherche">
+                      </div>
+                      <button (click)="createProjet()">
+                            <span class="material-symbols-rounded">
+                                  add
+                            </span>Créer un projet
+                      </button>
+                </div>
+          </header>
+          <div id="list-proj">
+                <div *ngFor="let projet of mesProjets ;index as i" class="card-projet">
+                      <input type="radio" name="accordion" id="cb{{i}}" />
+                      <section class="box">
+                            <label class="box-title" for="cb{{i}}">{{projet.nom}}</label>
+                            <label class="box-close" for="acc-close"></label>
+                            <div class="box-content">
+                                  <h2>Description :</h2>
+                                  <p>{{projet.description}}</p>
+                                  <h2>Compétence à acquérir :</h2>
+                                  <table>
+                                        <thead>
+                                              <tr>
+                                                    <th>Nom</th>
+                                                    <th>Description</th>
+                                              </tr>
+                                        </thead>
+                                        <tbody>
+                                              <tr *ngFor="let c of mesProjets[i].competences;index as i2">
+                                                    <td>{{c.nom}}</td>
+                                                    <td>{{c.description}}</td>
+                                              </tr>
+                                        </tbody>
+                                  </table>
+                            </div>
+                      </section>
+                </div>
+          </div>
+    </div>
+</div>

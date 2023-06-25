@@ -12,13 +12,15 @@ export class AppComponent {
 
   userLogged?: boolean;
   isAdmin: boolean = false;
+  role : any;
 
   constructor(private http: HttpClient, private router: Router) {
+   
   }
 
   ngOnInit() {
     this.userIsLogged();
-    console.log(this.userLogged)
+    this.roleUser();
   }
 
   userIsLogged() {
@@ -29,10 +31,33 @@ export class AppComponent {
       this.userLogged = false;
     }
   } 
+  
+  roleUser(){
+    this.role = sessionStorage.getItem('role');
+  }
 
+  
   goToLogin() {
     this.router.navigateByUrl('/');
   }
+
+  goToProjets(){
+    this.router.navigateByUrl('home-teacher/projets');
+  }
+
+  goToEtudiants(){
+    this.router.navigateByUrl('/home-teacher');
+  }
+
+  goToMonCompte(){
+    this.router.navigateByUrl('/home');
+    console.log("fzdz");
+  }
+
+  goToMesProjets(){
+    this.router.navigateByUrl('/home-student');
+  }
+  
 
   deconnexion() {
 
